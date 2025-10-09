@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Login - Take2EU</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="login.css">
+</head>
+
+<body>
+
+    <header class="main-header">
+        <div class="header-container">
+            <a href="index.html">
+                <img src="images/logo.png" alt="Logo" class="logo">
+            </a>
+
+            <nav class="nav-links" id="nav-links">
+                <a href="index.html">Home Page</a>
+                <button class="button" onclick="window.location.href='create-account.html'">Buy Now</button>
+
+                <div class="dropdown">
+                    <button class="button account-btn">Sign in / Sign up</button>
+                    <div class="dropdown-content">
+                        <a href="login.html">🔑 Log in</a>
+                        <a href="create-account.html">📝 Create account</a>
+                    </div>
+                </div>
+            </nav>
+
+            <div class="menu" id="menu-btn">☰</div>
+        </div>
+    </header>
+
+    <!-- LOGIN SECTION -->
+    <section class="login-section">
+        <div class="login-container">
+            <h2 class="login-title">Sign In</h2>
+            <p class="login-subtitle">Access your Take2EU account</p>
+
+            <form class="login-form">
+                <input type="email" placeholder="Email address" required>
+                <input type="password" placeholder="Password" required>
+
+                <div class="login-options">
+                    <label><input type="checkbox"> Remember me</label>
+                    <a href="#" class="forgot-link">Forgot password?</a>
+                </div>
+
+                <button type="submit" class="button">Sign In</button>
+            </form>
+
+            <p class="login-register">
+                Don’t have an account?
+                <a href="#" class="register-link">Start Application</a>
+            </p>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="main-footer">
+        <div class="footer-container">
+            <p>© 2025 Take2EU - Your Trusted Partner for European Employment</p>
+            <p>Empowering careers • Building futures • Connecting talent with opportunity</p>
+        </div>
+    </footer>
+</body>
+
+</html>

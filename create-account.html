@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Create Account - Take2EU</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="create-account.css">
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header class="main-header">
+        <div class="header-container">
+            <a href="index.html">
+                <img src="images/logo.png" alt="Logo" class="logo">
+            </a>
+
+            <nav class="nav-links" id="nav-links">
+                <a href="index.html">Home Page</a>
+                <button class="button" onclick="window.location.href='create-account.html'">Buy Now</button>
+
+                <div class="dropdown">
+                    <button class="button account-btn">Sign in / Sign up</button>
+                    <div class="dropdown-content">
+                        <a href="login.html">🔑 Log in</a>
+                        <a href="create-account.html">📝 Create account</a>
+                    </div>
+                </div>
+            </nav>
+
+            <div class="menu" id="menu-btn">☰</div>
+        </div>
+    </header>
+
+    <!-- PRICING SECTION -->
+    <section class="pricing-section">
+        <div class="pricing-section">
+            <div class="pricing-container">
+
+                <!-- Fast-Pack -->
+                <div class="pricing-plan">
+                    <h2>Fast-Pack</h2>
+                    <p class="wait">30 days waiting for a response</p>
+                    <h1>€4,99</h1>
+                    <p>This package is perfect for anyone who wants a solid, consistent presence in our database.</p>
+
+                    <ul>
+                        <li>Entry into the database</li>
+                        <li>Highlighted in search results</li>
+                        <li class="not-included">Top positioning in search results</li>
+                        <li class="not-included">Dedicated HR specialist</li>
+                        <li class="not-included">Notifications for employers</li>
+                    </ul>
+
+                    <button class="button">Purchase Order</button>
+                </div>
+
+                <!-- Express-Pack (Most Popular) -->
+                <div class="pricing-plan popular">
+                    <div class="badge">Most Popular</div>
+                    <h2>Express-Pack</h2>
+                    <p class="wait">14 days waiting for a response</p>
+                    <h1>€14,99</h1>
+                    <p>This is the right package if you want to speed up the process and gain an advantage over other
+                        candidates.</p>
+
+                    <ul>
+                        <li>Entry into the database</li>
+                        <li>Highlighted in search results</li>
+                        <li>Notifications for employers</li>
+                        <li class="not-included">Dedicated HR specialist</li>
+                        <li class="not-included">Priority contact</li>
+
+                    </ul>
+
+                    <button class="button">Purchase Order</button>
+                </div>
+
+                <!-- Priority-Pack -->
+                <div class="pricing-plan">
+                    <h2>Priority-Pack</h2>
+                    <p class="wait">7 days waiting for a response</p>
+                    <h1>€29,99</h1>
+                    <p>This is the best choice for those who want to be at the top and are actively seeking a job in
+                        Europe
+                        with a high priority.</p>
+
+                    <ul>
+                        <li>Entry into the database</li>
+                        <li>Top positioning in search results</li>
+                        <li>Notifications for employers</li>
+                        <li>Dedicated HR specialist</li>
+                        <li>Priority contact</li>
+                    </ul>
+
+                    <button class="button">Purchase Order</button>
+                </div>
+
+            </div>
+        </div>
+
+    </section>
+
+    <!-- CREATE ACCOUNT FORM -->
+    <section class="register-section">
+        <div class="register-container">
+            <h2 class="register-title">Create New Account</h2>
+
+            <form class="register-form">
+                <label>Email Address</label>
+                <input type="email" placeholder="name@example.com" required>
+
+                <label>Password</label>
+                <input type="password" placeholder="••••••••" required>
+
+                <label>Confirm Password</label>
+                <input type="password" placeholder="••••••••" required>
+
+                <label>Card Holder Name</label>
+                <input type="text" placeholder="John Doe" required>
+
+                <label>Card Number</label>
+                <input type="text" placeholder="1234 5678 9012 3456" required>
+
+                <div class="form-row">
+                    <div>
+                        <label>Expiry Date (MM/YY)</label>
+                        <input type="text" placeholder="MM/YY" required>
+                    </div>
+                    <div>
+                        <label>CVV (security code)</label>
+                        <input type="text" placeholder="123" required>
+                    </div>
+                </div>
+
+                <div class="payment-summary">
+                    <h3>Payment Summary</h3>
+                    <p><strong>Total:</strong> €14,99 / mo</p>
+                </div>
+
+                <button type="submit" class="button">PAY</button>
+            </form>
+        </div>
+    </section>
+
+    <footer class="main-footer">
+        <div class="footer-container">
+            <p>© 2025 Take2EU - Your Trusted Partner for European Employment</p>
+            <p>Empowering careers • Building futures • Connecting talent with opportunity</p>
+        </div>
+    </footer>
+</body>
+
+</html>
