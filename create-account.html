@@ -11,36 +11,20 @@
 
 <body>
 
-    <!-- HEADER -->
-    <header class="main-header">
-        <div class="header-container">
-            <a href="index.html">
-                <img src="images/logo.png" alt="Logo" class="logo">
-            </a>
+    <div id="header-placeholder"></div>
+    <script>
+        fetch("header.html")
+            .then(res => res.text())
+            .then(data => {
+                document.getElementById("header-placeholder").innerHTML = data;
+            });
+    </script>
 
-            <nav class="nav-links" id="nav-links">
-                <a href="index.html">Home Page</a>
-                <button class="button" onclick="window.location.href='create-account.html'">Buy Now</button>
 
-                <div class="dropdown">
-                    <button class="button account-btn">Sign in / Sign up</button>
-                    <div class="dropdown-content">
-                        <a href="login.html">🔑 Log in</a>
-                        <a href="create-account.html">📝 Create account</a>
-                    </div>
-                </div>
-            </nav>
-
-            <div class="menu" id="menu-btn">☰</div>
-        </div>
-    </header>
-
-    <!-- PRICING SECTION -->
     <section class="pricing-section">
         <div class="pricing-section">
             <div class="pricing-container">
 
-                <!-- Fast-Pack -->
                 <div class="pricing-plan">
                     <h2>Fast-Pack</h2>
                     <p class="wait">30 days waiting for a response</p>
@@ -58,7 +42,6 @@
                     <button class="button">Purchase Order</button>
                 </div>
 
-                <!-- Express-Pack (Most Popular) -->
                 <div class="pricing-plan popular">
                     <div class="badge">Most Popular</div>
                     <h2>Express-Pack</h2>
@@ -79,7 +62,7 @@
                     <button class="button">Purchase Order</button>
                 </div>
 
-                <!-- Priority-Pack -->
+
                 <div class="pricing-plan">
                     <h2>Priority-Pack</h2>
                     <p class="wait">7 days waiting for a response</p>
@@ -104,7 +87,7 @@
 
     </section>
 
-    <!-- CREATE ACCOUNT FORM -->
+
     <section class="register-section">
         <div class="register-container">
             <h2 class="register-title">Create New Account</h2>
