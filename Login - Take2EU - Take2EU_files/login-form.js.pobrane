@@ -1,0 +1,37 @@
+﻿import { BaseForm } from "../shared/base-form.js";
+import Validators from "../shared/validators.js";
+
+export class LoginForm extends BaseForm {
+    constructor() {
+        super({
+            formSel: "#login-form",
+            submitSel: "#login-btn",
+            fields: [
+                { id: "email", validator: Validators.validateEmail },
+                { id: "password", validator: Validators.validatePassword }
+            ]
+        });
+    }
+}
+
+function toggleRememberMe() {
+    const checkbox = document.getElementById('remember-checkbox');
+    const checkmark = document.getElementById('checkmark');
+    checkbox.checked = !checkbox.checked;
+    if (checkbox.checked) {
+        checkmark.innerHTML = '✓';
+        checkmark.style.backgroundColor = '#e5f7ed';
+        checkmark.style.borderColor = '#123456';
+        checkmark.style.color = '#123456';
+    } else {
+        checkmark.innerHTML = '';
+        checkmark.style.backgroundColor = '#eee';
+        checkmark.style.borderColor = '#ccc';
+        checkmark.style.color = '#22c55e';
+    }
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+    new LoginForm().init();
+    toggleRememberMe();
+});

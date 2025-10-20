@@ -1,0 +1,207 @@
+﻿body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #f9f9f9;
+    margin: 0;
+    padding: 30px 0;
+}
+
+.cv-container {
+    background: #fff;
+    width: 780px;
+    max-width: 98vw;
+    margin: 0 auto;
+    padding: 36px 8vw 40px 8vw;
+    box-shadow: 0 0 40px #bbb4;
+}
+
+.center {
+    text-align: center;
+}
+
+.cv-header {
+    border-bottom: 2px solid #333;
+    padding-bottom: 12px;
+    margin-bottom: 24px;
+}
+
+    .cv-header h1 {
+        margin: 0 0 4px 0;
+        letter-spacing: 2px;
+        font-size: 2.1rem;
+        word-break: break-word;
+    }
+
+    .cv-header h2 {
+        margin: 0;
+        font-size: 1.3rem;
+        color: #666;
+        font-weight: normal;
+        letter-spacing: 1px;
+        word-break: break-word;
+    }
+
+.cv-info-list {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+    .cv-info-list li {
+        margin-bottom: 6px;
+        font-size: 1rem;
+        word-break: break-word;
+    }
+
+.cv-section {
+    margin: 24px 0 16px 0;
+}
+
+.cv-section-title {
+    font-size: 1.15rem;
+    color: #1a4577;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #eee;
+    word-break: break-word;
+}
+
+.cv-label {
+    font-weight: 500;
+    color: #444;
+    margin-right: 12px;
+}
+
+.cv-job {
+    margin-bottom: 12px;
+    font-size: 1rem;
+    word-break: break-word;
+}
+
+.cv-lang {
+    margin-bottom: 5px;
+    font-size: 1rem;
+    word-break: break-word;
+}
+
+.cv-certificate {
+    margin-bottom: 7px;
+    word-break: break-word;
+}
+/* SLA INFO + BAR */
+.sla-info {
+    background: #e3f0ff;
+    border: 1px solid #bcd5fd;
+    border-radius: 7px;
+    padding: 13px 15px 10px 15px;
+    font-size: 15px;
+    margin-bottom: 22px;
+    color: #184a7c;
+    word-break: break-word;
+}
+
+.sla-bar-wrap {
+    margin-bottom: 32px;
+}
+
+    .sla-bar-wrap > div {
+        word-break: break-word;
+    }
+/* Thank you header block */
+.cv-thank-header {
+    margin-bottom: 22px;
+}
+
+    .cv-thank-header > div:first-child {
+        font-size: 1.21rem;
+        font-weight: 600;
+        color: #194a7c;
+    }
+
+    .cv-thank-header > div:last-child {
+        margin-top: 6px;
+        font-size: 1.06rem;
+        color: #406398;
+    }
+
+.cv-download-btn-row {
+    text-align: right;
+    margin-bottom: 12px;
+}
+
+.cv-download-btn {
+    color: #fff;
+    background: #4285f4;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.01rem;
+    padding: 7px 17px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 2px 8px #90caf92c;
+    transition: background 0.15s;
+}
+
+    .cv-download-btn:hover {
+        background: #2563b7;
+    }
+
+@media print {
+    .cv-container {
+        box-shadow: none;
+    }
+
+    .cv-download-btn-row {
+        display: none !important;
+    }
+}
+
+@media (max-width: 900px) {
+    .cv-container {
+        width: 99vw;
+        max-width: 99vw;
+        padding: 12px 2vw 14px 2vw;
+    }
+
+    .cv-header h1 {
+        font-size: 1.2rem;
+    }
+
+    .cv-header h2 {
+        font-size: 1.05rem;
+    }
+
+    .cv-section-title {
+        font-size: 1rem;
+    }
+
+    .cv-info-list li, .cv-job, .cv-lang {
+        font-size: 0.98rem;
+    }
+}
+
+@media (max-width: 600px) {
+    body {
+        padding: 5px 0;
+    }
+
+    .cv-container {
+        padding: 5px 1vw 15px 1vw;
+        min-width: 0;
+        box-shadow: 0 0 14px #9992;
+    }
+
+    .cv-header h1 {
+        font-size: 1.1rem;
+    }
+
+    .cv-label, .cv-section-title, .cv-header h2 {
+        font-size: 0.93rem;
+    }
+
+    .cv-info-list li, .cv-job, .cv-lang, .cv-certificate {
+        font-size: 0.93rem;
+    }
+
+    .sla-info {
+        font-size: 13px;
+    }
+}

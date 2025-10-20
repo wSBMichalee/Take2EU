@@ -1,0 +1,37 @@
+﻿import { BaseForm } from '../shared/base-form.js';
+import Validators from '../shared/validators.js';
+
+export class OrderForm extends BaseForm {
+    constructor() {
+        super({
+            formSel: '#payment-form',
+            submitSel: '#pay-btn',
+            fields: [
+                { id: 'email', validator: Validators.validateEmail },
+                { id: 'password', validator: Validators.validatePassword },
+                { id: 'confirm-password', validator: (v, ctx) => Validators.validateConfirm(String(ctx['password'] || ''), String(v || '')) },
+                { id: 'cardname', validator: Validators.validateName },
+                {
+                    id: 'cardnumber',
+                    validator: Validators.validateCardNumber,
+                    onInput: Validators.maskCardNumber
+                },
+                {
+                    id: 'expiry',
+                    validator: Validators.validateExpiry,
+                    onInput: Validators.maskExpiry
+                },
+                {
+                    id: 'cvv',
+                    validator: Validators.validateCvv,
+                    onInput: Validators.maskCvv
+                }
+            ]
+        });
+    }
+    extraPredicate() {
+        const plan = document.getElementById('selected-plan');
+        return !!(plan && plan.value);
+    }
+}
+document.addEventListener('DOMContentLoaded', () => { new OrderForm().init(); });

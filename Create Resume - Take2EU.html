@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<!-- saved from url=(0037)https://localhost:7096/resumes/create -->
+<html lang="pl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, interactive-widget=resizes-content">
+    <title>Create Resume - Take2EU</title>
+    <meta name="description" content="Take2EU - Your Gateway to European Employment">
+
+    <!-- Font globalny -->
+    <link rel="preconnect" href="https://fonts.googleapis.com/">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+    <link href="./Create Resume - Take2EU_files/css2" rel="stylesheet">
+
+    <!-- Najpierw globalny CSS -->
+    <link rel="stylesheet" href="./Create Resume - Take2EU_files/site.css">
+    <!-- Komponentowe (np. burger) -->
+    <link rel="stylesheet" href="./Create Resume - Take2EU_files/burger-menu.css">
+      <link rel="stylesheet" href="./Create Resume - Take2EU_files/cv-printable.css">
+
+    <!-- TU RenderSection - każdy widok może dołożyć swój CSS -->
+    
+    <link rel="stylesheet" href="./Create Resume - Take2EU_files/form-field.css">
+    <link rel="stylesheet" href="./Create Resume - Take2EU_files/create-resume.css">
+
+
+    <!-- Pozostałe style, np. auto-scaffold/blazor, mogą być tu -->
+</head>
+<body>
+    <header>
+        <nav class="main-menu" role="navigation" aria-label="Main navigation">
+            <div class="menu-brand">
+                <a href="https://localhost:7096/" class="brand-link" aria-label="Take2EU - Go to homepage">Take2EU</a>
+            </div>
+            <div class="menu-actions">
+                <a href="https://localhost:7096/Account/Login" class="account" aria-label="Sign in to your account">My Account</a>
+                <div class="burger-menu-wrapper">
+<button type="button" class="burger-menu-btn" aria-label="Toggle user menu" aria-expanded="false" aria-haspopup="menu" aria-controls="burger-menu">
+  <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+    <path d="M3 12h18M3 6h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
+  </svg>
+</button>
+
+<div id="burger-menu" class="burger-menu-dropdown hidden" aria-hidden="true">
+  <div class="burger-menu-content" role="menu">
+    <a href="https://localhost:7096/Resumes/Details" class="burger-menu-item" role="menuitem" tabindex="0">
+      <span class="menu-icon" aria-hidden="true">📄</span>My Resume
+    </a>
+    <a href="https://localhost:7096/Account/Profile" class="burger-menu-item" role="menuitem" tabindex="0">
+      <span class="menu-icon" aria-hidden="true">👤</span>Manage account
+    </a>
+    <a href="https://localhost:7096/Users" class="burger-menu-item" role="menuitem" tabindex="0">
+      <span class="menu-icon" aria-hidden="true">👤</span>Users
+    </a>
+    <a href="https://localhost:7096/Orders" class="burger-menu-item" role="menuitem" tabindex="0">
+      <span class="menu-icon" aria-hidden="true">💳</span>Orders
+    </a>
+    <a href="https://localhost:7096/Resumes" class="burger-menu-item" role="menuitem" tabindex="0">
+      <span class="menu-icon" aria-hidden="true">📄</span>Resumes
+    </a>
+    <a href="https://localhost:7096/Account/Logout" class="burger-menu-item logout" role="menuitem" tabindex="0">
+      <span class="menu-icon" aria-hidden="true">🚪</span>Sign Out
+    </a>
+  </div>
+</div></div>
+
+            </div>
+        </nav>
+    </header>
+    <main role="main" class="content-wrapper">
+        <script src="./Create Resume - Take2EU_files/form-field.js.pobrane" defer=""></script>
+        
+
+<div class="resume-container">
+    <div class="resume-card">
+        <div class="page-header">
+            <h1 class="page-title">Create Your Resume</h1>
+            <p class="page-subtitle">Complete all sections to build a professional European CV</p>
+        </div>
+        <form id="resume-form" method="post" autocomplete="off" novalidate="">
+            
+<div class="section section-personal">
+    <h2 class="section-title">Personal Data</h2>
+
+    <div class="form-row">
+        <div class="form-field"><label class="form-label" for="FirstName">First Name</label><div class="tooltip"><input aria-describedby="FirstName-error" class="input-field input-validation-success" data-val="true" data-val-length="The field FirstName must be a string with a maximum length of 100." data-val-length-max="100" data-val-minlength="First name must be at least 2 characters long" data-val-minlength-min="2" data-val-required="First name is required" id="FirstName" maxlength="100" name="FirstName" placeholder="First name" type="text" value="dom" data-touched="true"><span class="tooltip-text field-validation-valid" data-valmsg-for="FirstName" data-valmsg-replace="true" id="FirstName-error"></span></div></div>
+        <div class="form-field"><label class="form-label" for="LastName">Last Name</label><div class="tooltip"><input aria-describedby="LastName-error" class="input-field input-validation-success" data-val="true" data-val-length="The field LastName must be a string with a maximum length of 100." data-val-length-max="100" data-val-minlength="Last name must be at least 2 characters long" data-val-minlength-min="2" data-val-required="Last name is required" id="LastName" maxlength="100" name="LastName" placeholder="Last name" type="text" value="kooo" data-touched="true"><span class="tooltip-text field-validation-valid" data-valmsg-for="LastName" data-valmsg-replace="true" id="LastName-error"></span></div></div>
+    </div>
+    <div class="form-row">
+        <div class="form-field"><label class="form-label" for="DateOfBirth">Date of Birth</label><div class="tooltip"><input aria-describedby="DateOfBirth-error" class="input-field input-validation-success" id="DateOfBirth" max="2007-10-20" maxlength="100" min="1965-10-20" name="DateOfBirth" type="date" value="2007-10-03" data-touched="true"><span class="tooltip-text field-validation-valid" data-valmsg-for="DateOfBirth" data-valmsg-replace="true" id="DateOfBirth-error"></span></div></div>
+        <div class="form-field"><label class="form-label" for="Gender">Gender</label><div class="tooltip"><select class="input-field input-validation-success" id="Gender" name="Gender" required="required" data-touched="true"><option value="">-- Select --</option><option selected="selected" value="Female">Female</option><option value="Male">Male</option></select><span class="tooltip-text field-validation-valid" data-valmsg-for="Gender" data-valmsg-replace="true" id="Gender-error"></span></div></div>
+    </div>
+    <div class="form-row">
+        <div class="form-field"><label class="form-label" for="Nationality">Citizenship</label><div class="tooltip"><input aria-describedby="Nationality-error" class="input-field incremental-search input-validation-success" data-val="true" data-val-length="The field Nationality must be a string with a maximum length of 100." data-val-length-max="100" id="Nationality" maxlength="100" name="Nationality" placeholder="Type or select your citizenship" type="text" value="Portuguese" data-touched="true" data-incremental-bound="1"><div class="autocomplete-dropdown" style="display:none;"></div><script class="autocomplete-list-data" type="application/json">["Afghan","Albanian","Algerian","American","Andorran","Angolan","Antiguan and Barbudan","Argentine","Armenian","Australian","Austrian","Azerbaijani","Bahamian","Bahraini","Bangladeshi","Barbadian","Belarusian","Belgian","Belizean","Beninese","Bhutanese","Bolivian","Bosnian","Botswanan","Brazilian","Bruneian","Bulgarian","Burkinabe","Burmese","Burundian","Cabo Verdean","Cambodian","Cameroonian","Canadian","Central African","Chadian","Chilean","Chinese","Colombian","Comorian","Congolese (Congo-Brazzaville)","Congolese (Congo-Kinshasa)","Costa Rican","Croatian","Cuban","Cypriot","Czech","Danish","Djiboutian","Dominican","Dutch","East Timorese","Ecuadorian","Egyptian","Emirati","Equatorial Guinean","Eritrean","Estonian","Eswatini","Ethiopian","Fijian","Finnish","French","Gabonese","Gambian","Georgian","German","Ghanaian","Greek","Grenadian","Guatemalan","Guinean","Bissau-Guinean","Guyanese","Haitian","Honduran","Hungarian","Icelandic","Indian","Indonesian","Iranian","Iraqi","Irish","Israeli","Italian","Ivorian","Jamaican","Japanese","Jordanian","Kazakh","Kenyan","Kiribati","Kuwaiti","Kyrgyzstani","Laotian","Latvian","Lebanese","Liberian","Libyan","Liechtensteiner","Lithuanian","Luxembourgish","Malagasy","Malawian","Malaysian","Maldivian","Malian","Maltese","Marshallese","Mauritanian","Mauritian","Mexican","Micronesian","Moldovan","Monacan","Mongolian","Montenegrin","Moroccan","Mosotho","Mozambican","Namibian","Nauruan","Nepalese","New Zealander","Nicaraguan","Nigerian","Nigerien","North Macedonian","Norwegian","Omani","Pakistani","Palauan","Palestinian","Panamanian","Papua New Guinean","Paraguayan","Peruvian","Philippine","Polish","Portuguese","Qatari","Romanian","Russian","Rwandan","Saint Kitts and Nevisian","Saint Lucian","Saint Vincentian","Samoan","San Marinese","Sao Tomean","Saudi Arabian","Senegalese","Serbian","Seychellois","Sierra Leonean","Singaporean","Slovak","Slovenian","Solomon Islander","Somali","South African","South Korean","South Sudanese","Spanish","Sri Lankan","Sudanese","Surinamese","Swedish","Swiss","Syrian","Tajik","Tanzanian","Thai","Togolese","Tongan","Trinidadian/Tobagonian","Tunisian","Turkish","Turkmen","Tuvaluan","Ugandan","Ukrainian","Uruguayan","Uzbek","Vanuatuan","Venezuelan","Vietnamese","Yemeni","Zambian","Zimbabwean"]</script><span class="tooltip-text field-validation-valid" data-valmsg-for="Nationality" data-valmsg-replace="true" id="Nationality-error"></span></div></div>
+        <div class="form-field"><label class="form-label" for="MaritalStatus">Marital Status</label><div class="tooltip"><select class="input-field input-validation-success" id="MaritalStatus" name="MaritalStatus" required="required" data-touched="true"><option value="">-- Select --</option><option value="Single">Single</option><option selected="selected" value="Married">Married</option><option value="Divorced">Divorced</option><option value="Widowed">Widowed</option></select><span class="tooltip-text field-validation-valid" data-valmsg-for="MaritalStatus" data-valmsg-replace="true" id="MaritalStatus-error"></span></div></div>
+    </div>
+    <div class="form-row">
+        <div class="form-field">
+            <label class="form-label" for="Phone">Phone number</label>
+            <div class="phone-fields-wrap">
+                <div class="form-field"><div class="tooltip"><select class="input-field country-code-plain input-validation-success" id="PhoneCountryCode" name="PhoneCountryCode" data-touched="true"><option value="+1">🇺🇸 +1</option><option value="+44">🇬🇧 +44</option><option value="+48">🇵🇱 +48</option><option value="+49">🇩🇪 +49</option><option value="+33">🇫🇷 +33</option><option selected="selected" value="+34">🇪🇸 +34</option><option value="+420">🇨🇿 +420</option><option value="+380">🇺🇦 +380</option><option value="+46">🇸🇪 +46</option></select><span class="tooltip-text field-validation-valid" data-valmsg-for="PhoneCountryCode" data-valmsg-replace="true" id="PhoneCountryCode-error"></span></div></div>
+                <div class="form-field"><div class="tooltip"><input class="input-field phone-number-plain input-validation-success" data-val="true" data-val-length="The field Phone must be a string with a maximum length of 20." data-val-length-max="20" id="Phone" maxlength="20" name="Phone" placeholder="123 456 789" type="tel" value="111 111 111" data-touched="true"><span class="tooltip-text field-validation-valid" data-valmsg-for="Phone" data-valmsg-replace="true" id="Phone-error"></span></div></div>
+            </div>
+            <span class="tooltip-text" id="Phone-error"></span>
+        </div>
+        <div class="form-field">
+            <label class="form-label" for="Whatsapp">Whatsapp</label>
+            <div class="phone-fields-wrap">
+                <div class="form-field"><div class="tooltip"><select class="input-field country-code-plain input-validation-success" id="WhatsappCountryCode" name="WhatsappCountryCode" data-touched="true"><option value="+1">🇺🇸 +1</option><option value="+44">🇬🇧 +44</option><option value="+48">🇵🇱 +48</option><option value="+49">🇩🇪 +49</option><option value="+33">🇫🇷 +33</option><option value="+34">🇪🇸 +34</option><option value="+420">🇨🇿 +420</option><option value="+380">🇺🇦 +380</option><option value="+46">🇸🇪 +46</option></select><span class="tooltip-text field-validation-valid" data-valmsg-for="WhatsappCountryCode" data-valmsg-replace="true" id="WhatsappCountryCode-error"></span></div></div>
+                <div class="form-field"><div class="tooltip"><input class="input-field phone-number-plain input-validation-success" data-val="true" data-val-length="The field WhatsApp must be a string with a maximum length of 20." data-val-length-max="20" id="Whatsapp" maxlength="20" name="Whatsapp" placeholder="123 456 789" type="tel" value="222 222 222" data-touched="true"><span class="tooltip-text field-validation-valid" data-valmsg-for="Whatsapp" data-valmsg-replace="true" id="Whatsapp-error"></span></div></div>
+            </div>
+            <span class="tooltip-text" id="Whatsapp-error"></span>
+        </div>
+    </div>
+    <!-- EMAIL w osobnym WIERSZU na całą szerokość -->
+    <div class="form-row">
+        <div class="form-field"><label class="form-label" for="Email">Email</label><div class="tooltip"><input aria-describedby="Email-error" class="input-field input-validation-success" data-val="true" data-val-email="Enter a valid email address" data-val-length="The field Email must be a string with a maximum length of 100." data-val-length-max="100" data-val-required="Email is required" id="Email" maxlength="100" name="Email" placeholder="your@email.com" type="email" value="4dominik@wp.pl" data-touched="true"><span class="tooltip-text field-validation-valid" data-valmsg-for="Email" data-valmsg-replace="true" id="Email-error"></span></div></div>
+    </div>
+</div>
+
+            <div class="section">
+    <h2 class="section-title">Passport Data</h2>
+    <div class="form-row">
+        <div class="form-field"><label class="form-label" for="HasPassport">Do you have a valid passport?</label><div class="tooltip"><select class="input-field input-validation-success" id="HasPassport" name="HasPassport" data-touched="true"><option value="">-- Select --</option><option selected="selected" value="Yes">Yes</option><option value="No">No</option></select><span class="tooltip-text field-validation-valid" data-valmsg-for="HasPassport" data-valmsg-replace="true" id="HasPassport-error"></span></div></div>
+        <div class="form-field"><label class="form-label" for="PassportNumber">Passport Number</label><div class="tooltip"><input aria-describedby="PassportNumber-error" class="input-field input-validation-success" id="PassportNumber" maxlength="20" name="PassportNumber" placeholder="Passport Number" type="text" value="dasdsa" data-touched="true"><span class="tooltip-text field-validation-valid" data-valmsg-for="PassportNumber" data-valmsg-replace="true" id="PassportNumber-error"></span></div></div>
+    </div>
+    <div class="form-row">
+        <div class="form-field"><label class="form-label" for="PassportExpiry">Passport Expiry Date</label><div class="tooltip"><input aria-describedby="PassportExpiry-error" class="input-field input-validation-success" id="PassportExpiry" maxlength="100" name="PassportExpiry" type="date" value="2025-11-01" data-touched="true"><span class="tooltip-text field-validation-valid" data-valmsg-for="PassportExpiry" data-valmsg-replace="true" id="PassportExpiry-error"></span></div></div>
+        <div class="form-field"><label class="form-label" for="PassportCountry">Country of Passport Issue</label><div class="tooltip"><input aria-describedby="PassportCountry-error" class="input-field incremental-search input-validation-success" id="PassportCountry" maxlength="100" name="PassportCountry" placeholder="Type or select your country" type="text" value="Afghan" data-touched="true" data-incremental-bound="1"><div class="autocomplete-dropdown" style="display:none;"></div><script class="autocomplete-list-data" type="application/json">["Afghan","Albanian","Algerian","American","Andorran","Angolan","Antiguan and Barbudan","Argentine","Armenian","Australian","Austrian","Azerbaijani","Bahamian","Bahraini","Bangladeshi","Barbadian","Belarusian","Belgian","Belizean","Beninese","Bhutanese","Bolivian","Bosnian","Botswanan","Brazilian","Bruneian","Bulgarian","Burkinabe","Burmese","Burundian","Cabo Verdean","Cambodian","Cameroonian","Canadian","Central African","Chadian","Chilean","Chinese","Colombian","Comorian","Congolese (Congo-Brazzaville)","Congolese (Congo-Kinshasa)","Costa Rican","Croatian","Cuban","Cypriot","Czech","Danish","Djiboutian","Dominican","Dutch","East Timorese","Ecuadorian","Egyptian","Emirati","Equatorial Guinean","Eritrean","Estonian","Eswatini","Ethiopian","Fijian","Finnish","French","Gabonese","Gambian","Georgian","German","Ghanaian","Greek","Grenadian","Guatemalan","Guinean","Bissau-Guinean","Guyanese","Haitian","Honduran","Hungarian","Icelandic","Indian","Indonesian","Iranian","Iraqi","Irish","Israeli","Italian","Ivorian","Jamaican","Japanese","Jordanian","Kazakh","Kenyan","Kiribati","Kuwaiti","Kyrgyzstani","Laotian","Latvian","Lebanese","Liberian","Libyan","Liechtensteiner","Lithuanian","Luxembourgish","Malagasy","Malawian","Malaysian","Maldivian","Malian","Maltese","Marshallese","Mauritanian","Mauritian","Mexican","Micronesian","Moldovan","Monacan","Mongolian","Montenegrin","Moroccan","Mosotho","Mozambican","Namibian","Nauruan","Nepalese","New Zealander","Nicaraguan","Nigerian","Nigerien","North Macedonian","Norwegian","Omani","Pakistani","Palauan","Palestinian","Panamanian","Papua New Guinean","Paraguayan","Peruvian","Philippine","Polish","Portuguese","Qatari","Romanian","Russian","Rwandan","Saint Kitts and Nevisian","Saint Lucian","Saint Vincentian","Samoan","San Marinese","Sao Tomean","Saudi Arabian","Senegalese","Serbian","Seychellois","Sierra Leonean","Singaporean","Slovak","Slovenian","Solomon Islander","Somali","South African","South Korean","South Sudanese","Spanish","Sri Lankan","Sudanese","Surinamese","Swedish","Swiss","Syrian","Tajik","Tanzanian","Thai","Togolese","Tongan","Trinidadian/Tobagonian","Tunisian","Turkish","Turkmen","Tuvaluan","Ugandan","Ukrainian","Uruguayan","Uzbek","Vanuatuan","Venezuelan","Vietnamese","Yemeni","Zambian","Zimbabwean"]</script><span class="tooltip-text field-validation-valid" data-valmsg-for="PassportCountry" data-valmsg-replace="true" id="PassportCountry-error"></span></div></div>
+    </div>
+</div>
+
+            <div class="section">
+    <h2 class="section-title">Work preferences</h2>
+    <div class="form-row">
+        <div class="form-field"><label class="form-label" for="JobTitle">Preferred job</label><div class="tooltip"><input aria-describedby="JobTitle-error" class="input-field input-validation-success" id="JobTitle" maxlength="100" name="JobTitle" placeholder="Preferred job" type="text" value="pppp" data-touched="true"><span class="tooltip-text field-validation-valid" data-valmsg-for="JobTitle" data-valmsg-replace="true" id="JobTitle-error"></span></div></div>
+    </div>
+    <div class="form-row">
+        <div class="form-field"><label class="form-label" for="ReadyToWorkDate">Ready to work from</label><div class="tooltip"><input aria-describedby="ReadyToWorkDate-error" class="input-field" id="ReadyToWorkDate" maxlength="100" name="ReadyToWorkDate" type="date" value="" data-touched=""><span class="tooltip-text field-validation-valid" data-valmsg-for="ReadyToWorkDate" data-valmsg-replace="true" id="ReadyToWorkDate-error"></span></div></div>
+        <div class="form-field"><label class="form-label" style="visibility: hidden; display: block;">&nbsp;</label><label class="custom-checkbox"><input checked="checked" id="AvailableImmediately" name="AvailableImmediately" type="checkbox" value="true" data-touched="true"><span class="custom-checkmark"></span><span>Available immediately</span></label><span class="tooltip-text field-validation-valid" data-valmsg-for="AvailableImmediately" data-valmsg-replace="true" id="AvailableImmediately-error"></span></div>
+    </div>
+    <div class="form-row">
+        <div class="form-field"><label class="form-label" for="EmploymentSector">Employment sector</label><div class="tooltip"><select class="input-field input-validation-success" id="EmploymentSector" name="EmploymentSector" data-touched="true"><option value="">-- Employment sector --</option><option selected="selected" value="Construction">Construction</option><option value="Logistics / Warehouse">Logistics / Warehouse</option><option value="Caregiving / Domestic help">Caregiving / Domestic help</option><option value="Hospitality &amp; Food service">Hospitality &amp; Food service</option><option value="Agriculture / Seasonal work">Agriculture / Seasonal work</option><option value="IT / Technology">IT / Technology</option><option value="Administration / Office">Administration / Office</option><option value="Other">Other</option></select><span class="tooltip-text field-validation-valid" data-valmsg-for="EmploymentSector" data-valmsg-replace="true" id="EmploymentSector-error"></span></div></div>
+        <div class="form-field"><label class="form-label" for="EmploymentType">Employment type</label><div class="tooltip"><select class="input-field input-validation-success" id="EmploymentType" name="EmploymentType" data-touched="true"><option value="">-- Employment type --</option><option selected="selected" value="Full time">Full time</option><option value="Contract">Contract</option><option value="Seasonal">Seasonal</option><option value="Internship">Internship</option><option value="Flexible work">Flexible work</option></select><span class="tooltip-text field-validation-valid" data-valmsg-for="EmploymentType" data-valmsg-replace="true" id="EmploymentType-error"></span></div></div>
+    </div>
+    <div class="form-row">
+        <div class="form-field"><label class="form-label" for="NeedAccommodation">I need accommodation</label><div class="tooltip"><select class="input-field input-validation-success" id="NeedAccommodation" name="NeedAccommodation" data-touched="true"><option value="">-- I need accommodation --</option><option selected="selected" value="Yes">Yes</option><option value="No">No</option></select><span class="tooltip-text field-validation-valid" data-valmsg-for="NeedAccommodation" data-valmsg-replace="true" id="NeedAccommodation-error"></span></div></div>
+        <div class="form-field"><label class="form-label" for="JobNotes">Notes / preferences</label><div class="tooltip"><input aria-describedby="JobNotes-error" class="input-field" id="JobNotes" maxlength="100" name="JobNotes" placeholder="Your notes or preferences" type="text" value="" data-touched=""><span class="tooltip-text field-validation-valid" data-valmsg-for="JobNotes" data-valmsg-replace="true" id="JobNotes-error"></span></div></div>
+    </div>
+</div>
+
+            
+<div class="section section-experience">
+    <h2 class="section-title">Work Experience</h2>
+    <div id="experience-list">
+        <div class="workexp-block" data-index="0">
+    <div class="form-row">
+        <div class="form-field"><label class="form-label" for="CompanyName-0">Company name</label><div class="tooltip"><input aria-describedby="CompanyName-0-error" class="input-field input-validation-success" id="CompanyName-0" maxlength="100" name="WorkExperience[0].CompanyName" placeholder="Company name" type="text" value="pppp" data-touched="true"><span class="tooltip-text field-validation-valid" data-valmsg-for="WorkExperience[0].CompanyName" data-valmsg-replace="true" id="CompanyName-0-error"></span></div></div>
+
+        <div class="form-field"><label class="form-label" for="Position-0">Position</label><div class="tooltip"><input aria-describedby="Position-0-error" class="input-field input-validation-success" id="Position-0" maxlength="100" name="WorkExperience[0].Position" placeholder="Position" type="text" value="pppp" data-touched="true"><span class="tooltip-text field-validation-valid" data-valmsg-for="WorkExperience[0].Position" data-valmsg-replace="true" id="Position-0-error"></span></div></div>
+    </div>
+    <div class="form-row">
+        <div class="form-field"><label class="form-label" for="DateFrom-0">From</label><div class="tooltip"><input aria-describedby="DateFrom-0-error" class="input-field input-validation-success" id="DateFrom-0" maxlength="100" name="WorkExperience[0].DateFrom" type="date" value="2025-10-01" data-touched="true"><span class="tooltip-text field-validation-valid" data-valmsg-for="WorkExperience[0].DateFrom" data-valmsg-replace="true" id="DateFrom-0-error"></span></div></div>
+
+        <div class="form-field"><label class="form-label" for="DateTo-0">To</label><div class="tooltip"><input aria-describedby="DateTo-0-error" class="input-field input-validation-success" id="DateTo-0" maxlength="100" name="WorkExperience[0].DateTo" type="date" value="2025-10-14" data-touched="true"><span class="tooltip-text field-validation-valid" data-valmsg-for="WorkExperience[0].DateTo" data-valmsg-replace="true" id="DateTo-0-error"></span></div></div>
+    </div>
+    <div class="form-row">
+        <div class="form-field"><label class="form-label" for="EmploymentType-0">Type of employment</label><div class="tooltip"><select class="input-field input-validation-success" id="EmploymentType-0" name="WorkExperience[0].EmploymentType" data-touched="true"><option value="">---select---</option><option selected="selected" value="Full Time">Full Time</option><option value="Part time">Part time</option><option value="Contract">Contract</option><option value="Internship / Training">Internship / Training</option><option value="Seasonal / Temporary">Seasonal / Temporary</option></select><span class="tooltip-text field-validation-valid" data-valmsg-for="WorkExperience[0].EmploymentType" data-valmsg-replace="true" id="EmploymentType-0-error"></span></div></div>
+    </div>
+<div class="exp-actions"><button type="button" class="add-exp-btn">
+                    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="16"></line><line x1="8" y1="12" x2="16" y2="12"></line></svg>
+                    Add Experience
+                </button></div></div>
+
+    </div>
+</div>
+
+            
+<div class="section section-education">
+    <h2 class="section-title">Education and Qualifications</h2>
+    <div class="form-row">
+        <div class="form-field"><label class="form-label" for="EducationLevel">Level of Education</label><div class="tooltip"><select class="input-field input-validation-success" id="EducationLevel" name="EducationLevel" required="required" data-touched="true"><option value="">-- Select --</option><option selected="selected" value="High School">High School</option><option value="Vocational / Diploma">Vocational / Diploma</option><option value="Bachelor&#39;s degree">Bachelor's degree</option><option value="Master&#39;s degree">Master's degree</option><option value="Doctorate">Doctorate</option></select><span class="tooltip-text field-validation-valid" data-valmsg-for="EducationLevel" data-valmsg-replace="true" id="EducationLevel-error"></span></div></div>
+        <div class="form-field"><label class="form-label" for="DriversLicense">Driver's License</label><div class="tooltip"><select class="input-field input-validation-success" id="DriversLicense" name="DriversLicense" required="required" data-touched="true"><option value="">-- Select --</option><option selected="selected" value="No license">No license</option><option value="Motorcycle">Motorcycle</option><option value="Car">Car</option><option value="Truck / Bus">Truck / Bus</option></select><span class="tooltip-text field-validation-valid" data-valmsg-for="DriversLicense" data-valmsg-replace="true" id="DriversLicense-error"></span></div></div>
+    </div>
+
+    <label class="form-label" for="certificates-list" style="margin-bottom:8px;">
+        Add certificates and qualifications
+    </label>
+    <div id="certificates-list">
+        <div class="form-row certificate-block" data-index="0">
+    <div class="form-field"><div class="custom-file-upload validation-success"><input id="CertificateFile_0Id" name="Certificates[0].FileId" type="hidden" value="90" class="input-validation-success" data-touched="true"><input id="CertificateFile_0Name" name="Certificates[0].FileName" type="hidden" value="Faktura464U102025.pdf" data-touched="true"><input accept=".pdf,.jpg,.jpeg,.png" class="input-file" data-fileid-selector="#CertificateFile_0Id" disabled="disabled" id="CertificateFile_0" name="Certificates[0].FileId_file" placeholder="Upload certificate" type="file" data-init-placeholder="Upload certificate" data-touched="true"><label class="file-upload-btn" for="CertificateFile_0" style="display: flex; align-items: center; justify-content: space-between; width: 100%;"><span style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap;flex:1">Faktura464U102025.pdf</span></label><span class="file-remove-btn" title="Usuń plik" aria-label="Usuń plik" tabindex="0" style="background:transparent;border:none;margin-left:10px;margin-right:10px;cursor:pointer;display:inline-flex;align-items:center;"><svg viewBox="0 0 24 24" style="min-width:1.3em;width:1.3em;height:1.3em;vertical-align:middle;">
+<circle cx="12" cy="12" r="10" fill="white" stroke="#DC2626" stroke-width="2"></circle>
+<line x1="8" y1="12" x2="16" y2="12" stroke="#DC2626" stroke-width="2"></line>
+</svg></span></div><span class="tooltip-text field-validation-valid" data-valmsg-for="Certificates[0].FileId" data-valmsg-replace="true" id="CertificateFile_0-error"></span></div>
+</div>
+<div class="form-row certificate-block" data-index="1">
+    <div class="form-field"><div class="custom-file-upload validation-success"><input id="CertificateFile_1Id" name="Certificates[1].FileId" type="hidden" value="91" class="input-validation-success" data-touched="true"><input id="CertificateFile_1Name" name="Certificates[1].FileName" type="hidden" value="PIT5L.pdf" data-touched="true"><input accept=".pdf,.jpg,.jpeg,.png" class="input-file" data-fileid-selector="#CertificateFile_1Id" disabled="disabled" id="CertificateFile_1" name="Certificates[1].FileId_file" placeholder="Upload certificate" type="file" data-init-placeholder="Upload certificate" data-touched="true"><label class="file-upload-btn" for="CertificateFile_1" style="display: flex; align-items: center; justify-content: space-between; width: 100%;"><span style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap;flex:1">PIT5L.pdf</span></label><span class="file-remove-btn" title="Usuń plik" aria-label="Usuń plik" tabindex="0" style="background:transparent;border:none;margin-left:10px;margin-right:10px;cursor:pointer;display:inline-flex;align-items:center;"><svg viewBox="0 0 24 24" style="min-width:1.3em;width:1.3em;height:1.3em;vertical-align:middle;">
+<circle cx="12" cy="12" r="10" fill="white" stroke="#DC2626" stroke-width="2"></circle>
+<line x1="8" y1="12" x2="16" y2="12" stroke="#DC2626" stroke-width="2"></line>
+</svg></span></div><span class="tooltip-text field-validation-valid" data-valmsg-for="Certificates[1].FileId" data-valmsg-replace="true" id="CertificateFile_1-error"></span></div>
+</div>
+
+    <div class="form-row certificate-block" data-index="2">
+    <div class="form-field"><div class="custom-file-upload"><input id="CertificateFile_2Id" name="Certificates[2].FileId" type="hidden"><input id="CertificateFile_2Name" name="Certificates[2].FileName" type="hidden"><input accept=".pdf,.jpg,.jpeg,.png" class="input-file" data-fileid-selector="#CertificateFile_2Id" id="CertificateFile_2" name="Certificates[2].FileId_file" placeholder="Upload certificate" type="file" data-init-placeholder="Upload certificate"><label class="file-upload-btn" for="CertificateFile_2" style="display: flex; align-items: center; justify-content: space-between; width: 100%;"><span style="display:flex;align-items:center;"><span><svg viewBox="0 0 24 24" style="min-width:1.3em;width:1.3em;height:1.3em;vertical-align:middle;margin-right:18px;">
+<circle cx="12" cy="12" r="10" fill="white" stroke="#143970" stroke-width="2"></circle>
+<line x1="12" y1="8" x2="12" y2="16" stroke="#143970" stroke-width="2"></line>
+<line x1="8" y1="12" x2="16" y2="12" stroke="#143970" stroke-width="2"></line>
+</svg></span>Upload certificate</span></label></div><span class="tooltip-text field-validation-valid" data-valmsg-for="Certificates[2].FileId" data-valmsg-replace="true" id="CertificateFile_2-error"></span></div>
+</div>
+</div>
+</div>
+
+            
+<div class="section section-language">
+    <h2 class="section-title">Language Skills</h2>
+    <div id="language-list">
+        <div class="lang-block" data-index="0">
+    <div class="form-field"><label class="form-label" for="Language-0">Language</label><div class="tooltip"><input aria-describedby="Language-0-error" class="input-field incremental-search input-validation-success" data-val="true" data-val-required="The Language field is required." id="Language-0" maxlength="100" name="LanguageSkills[0].Language" placeholder="Enter or select a language" type="text" value="Polish" data-touched="true" data-incremental-bound="1"><div class="autocomplete-dropdown" style="display:none;"></div><script class="autocomplete-list-data" type="application/json">["English","Polish","German","French"]</script><span class="tooltip-text field-validation-valid" data-valmsg-for="LanguageSkills[0].Language" data-valmsg-replace="true" id="Language-0-error"></span></div></div>
+    <div class="native-wrap" style="margin-bottom: 32px;">
+        <div class="form-field"><label class="form-label" style="visibility: hidden; display: block;">&nbsp;</label><label class="custom-checkbox"><input id="IsNative-0" name="LanguageSkills[0].IsNative" type="checkbox" value="true" class="input-validation-success" data-touched="true"><span class="custom-checkmark"></span><span>Native language</span></label><span class="tooltip-text field-validation-valid" data-valmsg-for="LanguageSkills[0].IsNative" data-valmsg-replace="true" id="IsNative-0-error"></span></div>
+    </div>
+    <div class="form-row">
+        <div class="form-field"><label class="form-label" for="Listening-0">Listening</label><div class="tooltip"><select class="input-field input-validation-success" id="Listening-0" name="LanguageSkills[0].Listening" required="required" data-touched="true"><option value="">-- Select level --</option><option selected="selected" value="A1">Beginner (A1)</option><option value="A2">Elementary (A2)</option><option value="B1">Intermediate (B1)</option><option value="B2">Upper Intermediate (B2)</option><option value="C1">Advanced (C1)</option><option value="C2">Proficient (C2)</option></select><span class="tooltip-text field-validation-valid" data-valmsg-for="LanguageSkills[0].Listening" data-valmsg-replace="true" id="Listening-0-error"></span></div></div>
+        <div class="form-field"><label class="form-label" for="Reading-0">Reading</label><div class="tooltip"><select class="input-field input-validation-success" id="Reading-0" name="LanguageSkills[0].Reading" required="required" data-touched="true"><option value="">-- Select level --</option><option selected="selected" value="A1">Beginner (A1)</option><option value="A2">Elementary (A2)</option><option value="B1">Intermediate (B1)</option><option value="B2">Upper Intermediate (B2)</option><option value="C1">Advanced (C1)</option><option value="C2">Proficient (C2)</option></select><span class="tooltip-text field-validation-valid" data-valmsg-for="LanguageSkills[0].Reading" data-valmsg-replace="true" id="Reading-0-error"></span></div></div>
+    </div>
+    <div class="form-row">
+        <div class="form-field"><label class="form-label" for="Writing-0">Writing</label><div class="tooltip"><select class="input-field input-validation-success" id="Writing-0" name="LanguageSkills[0].Writing" required="required" data-touched="true"><option value="">-- Select level --</option><option selected="selected" value="A1">Beginner (A1)</option><option value="A2">Elementary (A2)</option><option value="B1">Intermediate (B1)</option><option value="B2">Upper Intermediate (B2)</option><option value="C1">Advanced (C1)</option><option value="C2">Proficient (C2)</option></select><span class="tooltip-text field-validation-valid" data-valmsg-for="LanguageSkills[0].Writing" data-valmsg-replace="true" id="Writing-0-error"></span></div></div>
+        <div class="form-field"><label class="form-label" for="Speaking-0">Speaking</label><div class="tooltip"><select class="input-field input-validation-success" id="Speaking-0" name="LanguageSkills[0].Speaking" required="required" data-touched="true"><option value="">-- Select level --</option><option value="A1">Beginner (A1)</option><option selected="selected" value="A2">Elementary (A2)</option><option value="B1">Intermediate (B1)</option><option value="B2">Upper Intermediate (B2)</option><option value="C1">Advanced (C1)</option><option value="C2">Proficient (C2)</option></select><span class="tooltip-text field-validation-valid" data-valmsg-for="LanguageSkills[0].Speaking" data-valmsg-replace="true" id="Speaking-0-error"></span></div></div>
+    </div>
+    <div class="form-field"><label class="form-label" for="Communication-0">Communication Skills</label><div class="tooltip"><select class="input-field input-validation-success" id="Communication-0" name="LanguageSkills[0].Communication" required="required" data-touched="true"><option value="">-- Select level --</option><option value="A1">Beginner (A1)</option><option value="A2">Elementary (A2)</option><option value="B1">Intermediate (B1)</option><option selected="selected" value="B2">Upper Intermediate (B2)</option><option value="C1">Advanced (C1)</option><option value="C2">Proficient (C2)</option></select><span class="tooltip-text field-validation-valid" data-valmsg-for="LanguageSkills[0].Communication" data-valmsg-replace="true" id="Communication-0-error"></span></div></div>
+<div class="lang-actions"><button type="button" class="add-lang-btn">
+                        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="16"></line><line x1="8" y1="12" x2="16" y2="12"></line></svg>
+                        Add Language
+                    </button></div></div>
+
+    </div>
+</div>
+
+
+            
+<div class="section documents-section">
+    <h2 class="section-title">Documents</h2>
+
+    <div class="form-field"><label class="form-label" for="CvFile">Add your CV (pdf)</label><div class="custom-file-upload"><input id="CvFileId" name="CvFile" type="hidden" data-touched=""><input id="CvFileName" name="CvFileName" type="hidden" data-touched=""><input accept=".pdf" class="input-file" data-fileid-selector="#CvFileId" id="CvFile" name="CvFile_file" placeholder="Add your CV (pdf)" type="file" data-init-placeholder="Add your CV (pdf)" data-touched=""><label class="file-upload-btn" for="CvFile" style="display: flex; align-items: center; justify-content: space-between; width: 100%;"><span style="display:flex;align-items:center;"><span><svg viewBox="0 0 24 24" style="min-width:1.3em;width:1.3em;height:1.3em;vertical-align:middle;margin-right:18px;">
+<circle cx="12" cy="12" r="10" fill="white" stroke="#143970" stroke-width="2"></circle>
+<line x1="12" y1="8" x2="12" y2="16" stroke="#143970" stroke-width="2"></line>
+<line x1="8" y1="12" x2="16" y2="12" stroke="#143970" stroke-width="2"></line>
+</svg></span>Add your CV (pdf)</span></label></div><span class="tooltip-text field-validation-valid" data-valmsg-for="CvFile" data-valmsg-replace="true" id="CvFile-error"></span></div>
+
+    <div class="form-field"><label class="form-label" for="ResidencePermitType">What type of residence permit do you have in Europe?</label><div class="tooltip"><select class="input-field input-validation-success" id="ResidencePermitType" name="ResidencePermitType" data-touched="true"><option value="">-- Select --</option><option selected="selected" value="Temporary">Temporary (TRC)</option><option value="Permanent">Permanent</option><option value="None">I don't have a residence permit</option></select><span class="tooltip-text field-validation-valid" data-valmsg-for="ResidencePermitType" data-valmsg-replace="true" id="ResidencePermitType-error"></span></div></div>
+
+    <div class="form-field"><label class="form-label" for="HasWorkPermit">Do you currently have a valid work permit?</label><div class="tooltip"><select class="input-field input-validation-success" id="HasWorkPermit" name="HasWorkPermit" data-touched="true"><option value="">-- Select --</option><option selected="selected" value="Yes">Yes</option><option value="No">No</option></select><span class="tooltip-text field-validation-valid" data-valmsg-for="HasWorkPermit" data-valmsg-replace="true" id="HasWorkPermit-error"></span></div></div>
+</div>
+
+            
+<div class="section consents-section">
+    <h2 class="section-title">Consents and Summary</h2>
+    <div class="form-field"><label class="form-label" style="visibility: hidden; display: block;">&nbsp;</label><label class="custom-checkbox"><input checked="checked" id="ConsentPersonalData" name="ConsentPersonalData" type="checkbox" value="true" class="input-validation-success" data-touched="true"><span class="custom-checkmark"></span><span>Consent to the processing of personal data (GDPR) <span style="color:red">*</span></span></label><span class="tooltip-text field-validation-valid" data-valmsg-for="ConsentPersonalData" data-valmsg-replace="true" id="ConsentPersonalData-error"></span></div>
+    <div class="form-field"><label class="form-label" style="visibility: hidden; display: block;">&nbsp;</label><label class="custom-checkbox"><input checked="checked" id="ConsentJobOffers" name="ConsentJobOffers" type="checkbox" value="true" class="input-validation-success" data-touched="true"><span class="custom-checkmark"></span><span>Consent to be contacted regarding job offers <span style="color:red">*</span></span></label><span class="tooltip-text field-validation-valid" data-valmsg-for="ConsentJobOffers" data-valmsg-replace="true" id="ConsentJobOffers-error"></span></div>
+</div>
+
+            <div class="form-actions">
+                <button id="apply-btn" type="submit" class="btn btn-primary">
+                    Apply for Jobs
+                </button>
+            </div>
+        <input name="__RequestVerificationToken" type="hidden" value="CfDJ8H5HZDrq3TFLsW_TpeW4Yg5YeE5uCaTXIf4XDpkmBHSMpryyUhbN8TCO8l4g_Hn1CIKOvVXAmP2wipgHF4J8USUbDMYtce1JKAh66zR88ysCwtO9yh3Jk9Rf7f2paNPphqJi5kFptKrdzRy-u1id7Gn4nuDONK0ERMoVXoIvxBaH0pVMilJgh3CuR9ziB5qy9w" data-touched="true"></form>
+    </div>
+</div>
+
+
+    </main>
+    
+    <script type="module" src="./Create Resume - Take2EU_files/create-resume.js.pobrane"></script>
+
+    <script src="./Create Resume - Take2EU_files/burger-menu.js.pobrane" defer=""></script>
+
+<!-- Visual Studio Browser Link -->
+<script type="text/javascript" src="./Create Resume - Take2EU_files/browserLink" async="async" id="__browserLink_initializationData" data-requestid="3c75f1992a7a4e83b8bfaa64a7c800eb" data-requestmappingfromserver="false" data-connecturl="http://localhost:60694/7ad38c5392074f1496c7a645265da9b4/browserLink"></script>
+<!-- End Browser Link -->
+<script src="./Create Resume - Take2EU_files/aspnetcore-browser-refresh.js.pobrane"></script>
+
+</body></html>

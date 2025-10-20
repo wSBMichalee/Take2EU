@@ -1,0 +1,19 @@
+﻿(function () {
+    function wire() {
+        const cards = document.querySelectorAll('.plan-card');
+        const hidden = document.getElementById('selected-plan');
+        const total = document.getElementById('total-amount');
+        const login = document.getElementById('login-section');
+
+        cards.forEach(card => {
+            card.addEventListener('click', () => {
+                cards.forEach(c => c.classList.remove('selected'));
+                card.classList.add('selected');
+                if (hidden) hidden.value = card.dataset.planType || '';
+                if (total) total.textContent = parseFloat(card.dataset.price || '0').toFixed(2);
+                if (login) login.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+        });
+    }
+    document.addEventListener('DOMContentLoaded', wire);
+})();

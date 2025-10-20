@@ -1,0 +1,169 @@
+﻿// wwwroot/js/components/form-field.js
+function initializeIncrementalSearchFields(context) {
+    (context || document).querySelectorAll('.incremental-search:not([data-incremental-bound])').forEach(function (input) {
+        input.dataset.incrementalBound = "1";
+        let isSelecting = false;
+        const wrapper = input.closest('.tooltip');
+        const dropdown = wrapper ? wrapper.querySelector('.autocomplete-dropdown') : null;
+        const dataScript = wrapper ? wrapper.querySelector('.autocomplete-list-data') : null;
+        if (!dropdown || !dataScript) return;
+        let list;
+        try {
+            list = JSON.parse(dataScript.textContent || dataScript.innerText || '[]');
+        } catch { list = []; }
+        let filtered = [];
+        let selectedIdx = -1;
+        let timeoutId;
+        function renderDropdown() {
+            if (!filtered.length) {
+                dropdown.style.display = 'none';
+                dropdown.innerHTML = '';
+                selectedIdx = -1;
+                return;
+            }
+            dropdown.innerHTML = filtered.map((item, i) =>
+                `<div class="autocomplete-item${i === selectedIdx ? ' selected' : ''}" data-index="${i}" data-value="${item}">${item}</div>`
+            ).join('');
+            dropdown.style.display = 'block';
+        }
+        function updateHighlight() {
+            dropdown.querySelectorAll('.autocomplete-item').forEach((item, idx) => {
+                item.classList.toggle('selected', idx === selectedIdx);
+            });
+        }
+        function selectItem(idx) {
+            if (filtered[idx]) {
+                isSelecting = true;
+                input.value = filtered[idx];
+                dropdown.style.display = 'none';
+                selectedIdx = -1;
+                input.dispatchEvent(new Event('input', { bubbles: true }));
+                input.dispatchEvent(new Event('change', { bubbles: true }));
+                input.dispatchEvent(new CustomEvent('autocomplete-choice'));
+                setTimeout(() => {
+                    isSelecting = false;
+                }, 0);
+            }
+        }
+        input.addEventListener('focus', function () {
+            const query = input.value.trim().toLowerCase();
+            filtered = query.length
+                ? list.filter(x => x.toLowerCase().includes(query))
+                : list.slice();
+            selectedIdx = -1;
+            renderDropdown();
+        });
+        input.addEventListener('input', function () {
+            if (isSelecting) return;
+            clearTimeout(timeoutId);
+            timeoutId = setTimeout(() => {
+                const query = input.value.trim().toLowerCase();
+                filtered = query.length
+                    ? list.filter(x => x.toLowerCase().includes(query))
+                    : list.slice();
+                selectedIdx = -1;
+                renderDropdown();
+            }, 100);
+        });
+        input.addEventListener('keydown', function (e) {
+            if (dropdown.style.display !== 'block') {
+                if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
+                    const query = input.value.trim().toLowerCase();
+                    filtered = query.length
+                        ? list.filter(x => x.toLowerCase().includes(query))
+                        : list.slice();
+                    selectedIdx = -1;
+                    renderDropdown();
+                }
+                return;
+            }
+            const max = filtered.length - 1;
+            if (e.key === 'ArrowDown') {
+                e.preventDefault();
+                selectedIdx = Math.min(selectedIdx + 1, max);
+                updateHighlight();
+            } else if (e.key === 'ArrowUp') {
+                e.preventDefault();
+                selectedIdx = Math.max(selectedIdx - 1, 0);
+                updateHighlight();
+            } else if (e.key === 'Enter') {
+                if (selectedIdx >= 0) {
+                    e.preventDefault();
+                    selectItem(selectedIdx);
+                }
+            } else if (e.key === 'Tab') {
+                if (selectedIdx >= 0) {
+                    e.preventDefault();
+                    selectItem(selectedIdx);
+                }
+            } else if (e.key === 'Escape') {
+                dropdown.style.display = 'none';
+                selectedIdx = -1;
+            }
+        });
+        dropdown.addEventListener('mousedown', function (e) {
+            const item = e.target.closest('.autocomplete-item');
+            if (!item) return;
+            e.preventDefault();
+            const idx = parseInt(item.dataset.index);
+            selectItem(idx);
+        });
+        dropdown.addEventListener('mouseover', function (e) {
+            const item = e.target.closest('.autocomplete-item');
+            if (!item) return;
+            selectedIdx = parseInt(item.dataset.index);
+            updateHighlight();
+        });
+        input.addEventListener('blur', function () {
+            setTimeout(() => {
+                dropdown.style.display = 'none';
+                selectedIdx = -1;
+            }, 200);
+        });
+        dropdown.addEventListener('mousedown', function (e) {
+            e.preventDefault();
+        });
+    });
+}
+
+// Inicjalizacja incremental-search na starcie i po każdym dynamicznym doładowaniu!
+document.addEventListener('DOMContentLoaded', function () {
+    initializeIncrementalSearchFields(document);
+
+    document.addEventListener('click', function (e) {
+        if (!e.target.closest('.tooltip')) {
+            document.querySelectorAll('.autocomplete-dropdown').forEach(dropdown => {
+                dropdown.style.display = 'none';
+            });
+        }
+    });
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') {
+            document.querySelectorAll('.autocomplete-dropdown').forEach(dropdown => {
+                dropdown.style.display = 'none';
+            });
+        }
+    });
+
+    // --- MASKA I WALIDACJA NA BIEŻĄCO DLA NUMERU TELEFONU ---
+    document.querySelectorAll('.phone-number-plain').forEach(function (input) {
+        input.addEventListener('input', function () {
+            // Zamieniaj wszystkie znaki na cyfry
+            let digits = input.value.replace(/\D/g, '');
+            if (digits.length > 9) digits = digits.slice(0, 9);
+            let masked = '';
+            if (digits.length > 6) {
+                masked = digits.replace(/(\d{3})(\d{3})(\d{1,3})/, '$1 $2 $3');
+            } else if (digits.length > 3) {
+                masked = digits.replace(/(\d{3})(\d{1,3})/, '$1 $2');
+            } else {
+                masked = digits;
+            }
+            input.value = masked;
+            input.dataset.touched = 'true';
+            if (window.baseFormInstance && typeof window.baseFormInstance.checkForm === "function") {
+                window.baseFormInstance.checkForm();
+            }
+        });
+    });
+});

@@ -1,0 +1,597 @@
+﻿import Validators from '/js/shared/validators.js';
+import { BaseForm } from '/js/shared/base-form.js';
+import { setupFileInput } from '/js/shared/files.js';
+
+function debounce(fn, delay) {
+    let timer = null;
+    return function (...args) {
+        clearTimeout(timer);
+        timer = setTimeout(() => fn.apply(this, args), delay);
+    };
+}
+
+function main() {
+    const form = document.querySelector('#resume-form');
+    // ---- Usuń Experience przez backend + obsługa redirectUrl ----
+    async function removeWorkExperienceOnServer(index) {
+        const token = document.querySelector('input[name="__RequestVerificationToken"]')?.value;
+        const res = await fetch('/Resumes/RemoveWorkExperience', {
+            method: 'POST',
+            headers: {
+                'X-Requested-With': 'XMLHttpRequest',
+                ...(token ? { 'RequestVerificationToken': token } : {})
+            },
+            body: new URLSearchParams({ index: String(index) })
+        });
+
+
+
+        const ct = res.headers.get('content-type') || '';
+        if (ct.includes('application/json')) {
+            const json = await res.json();
+            if (json.redirectUrl) { window.location.href = json.redirectUrl; return { redirected: true }; }
+            if (json.ok === false) throw new Error(json.message || 'Server refused');
+        }
+        if (!res.ok) throw new Error('Remove failed');
+        return { redirected: false };
+    }
+
+    async function removeLanguageOnServer(index) {
+        const token = document.querySelector('input[name="__RequestVerificationToken"]')?.value;
+        const res = await fetch('/Resumes/RemoveLanguage', {
+            method: 'POST',
+            headers: {
+                'X-Requested-With': 'XMLHttpRequest',
+                ...(token ? { 'RequestVerificationToken': token } : {})
+            },
+            body: new URLSearchParams({ index: String(index) })
+        });
+
+        const ct = res.headers.get('content-type') || '';
+        if (ct.includes('application/json')) {
+            const json = await res.json();
+            if (json.redirectUrl) { window.location.href = json.redirectUrl; return { redirected: true }; }
+            if (json.ok === false) throw new Error(json.message || 'Server refused');
+        }
+        if (!res.ok) throw new Error('Remove failed');
+        return { redirected: false };
+    }
+
+
+
+    // --- AUTOSAVE tylko zmienione pole/plik (po blur lub change!) ---
+    async function autosaveSingleField(event) {
+        const el = event.target;
+        const name = el.name;
+        if (!name) return;
+
+        let data = new FormData();
+        if (el.type === "checkbox" || el.type === "radio") {
+            data.append(name, el.checked ? "true" : "false");
+        } else {
+            data.append(name, el.value);
+        }
+
+        try {
+            const response = await fetch('/Resumes/AutoSaveField', {
+                method: 'POST',
+                body: data
+            });
+            const contentType = response.headers.get("content-type");
+            if (contentType && contentType.indexOf("application/json") !== -1) {
+                const result = await response.json();
+                if (result.redirectUrl) {
+                    window.location.href = result.redirectUrl;
+                    return;
+                }
+            }
+        } catch (e) {
+            console.error("Autosave error:", e);
+        }
+    }
+
+    function attachAutosaveListeners(container) {
+        container.querySelectorAll('input, textarea, select').forEach(el => {
+            el.addEventListener('blur', autosaveSingleField);
+            el.addEventListener('change', autosaveSingleField);
+        });
+    }
+
+    attachAutosaveListeners(form);
+
+    // Walidacja daty urodzenia
+    const dobInput = document.getElementById("DateOfBirth");
+    if (dobInput) {
+        const validate = () => {
+            const v = dobInput.value;
+            const minDate = dobInput.getAttribute("min");
+            const maxDate = dobInput.getAttribute("max");
+            if (!v) {
+                dobInput.setCustomValidity("Date of birth is required.");
+            } else if ((minDate && v < minDate) || (maxDate && v > maxDate)) {
+                dobInput.setCustomValidity("Allowed age: 18-60 years.");
+            } else {
+                dobInput.setCustomValidity("");
+            }
+        };
+        dobInput.addEventListener("input", validate);
+        dobInput.addEventListener("blur", validate);
+    }
+
+    function getAllFields() {
+        const fields = [
+            { id: "FirstName", validator: Validators.validateFirstName },
+            { id: "LastName", validator: Validators.validateLastName },
+            { id: "DateOfBirth", validator: Validators.validateDoB },
+            { id: "Gender", validator: Validators.validateGender },
+            { id: "MaritalStatus", validator: Validators.validateMaritalStatus },
+            { id: "Nationality", validator: Validators.validateNationality },
+            { id: "Phone", validator: Validators.validatePhoneNumber },
+            { id: "PhoneCountryCode", validator: Validators.validateCountryCode },
+            { id: "Whatsapp", validator: Validators.validatePhoneNumber },
+            { id: "WhatsappCountryCode", validator: Validators.validateCountryCode },
+            { id: "Email", validator: Validators.validateEmail },
+            { id: "HasPassport", validator: Validators.validateHasPassport },
+            { id: "PassportNumber", validator: Validators.validatePassportNumber },
+            { id: "PassportExpiry", validator: Validators.validatePassportExpiry },
+            { id: "PassportCountry", validator: Validators.validatePassportCountry },
+            { id: "JobTitle", validator: Validators.validateJobTitle },
+            { id: "ReadyToWorkDate", validator: Validators.validateReadyToWorkDate },
+            { id: "EmploymentSector", validator: Validators.validateEmploymentSector },
+            { id: "EmploymentType", validator: Validators.validateEmploymentType },
+            { id: "NeedAccommodation", validator: Validators.validateNeedAccommodation },
+            { id: "EducationLevel", validator: Validators.validateEducationLevel },
+            { id: "DriversLicense", validator: Validators.validateDriversLicense },
+            { id: "Qualifications", validator: Validators.validateQualifications },
+            { id: "CvFileId", validator: Validators.validateCvFile },
+            { id: "ResidencePermitType", validator: Validators.validateResidencePermit },
+            { id: "HasWorkPermit", validator: Validators.validateWorkPermit },
+            { id: "ConsentPersonalData", validator: Validators.validateConsentPersonalData },
+            { id: "ConsentJobOffers", validator: Validators.validateConsentJobOffers },
+            { id: "AvailableImmediately" },
+        ];
+        document.querySelectorAll('.workexp-block').forEach(block => {
+            const idx = block.dataset.index || "0";
+            fields.push(
+                { id: `CompanyName-${idx}`, validator: Validators.validateCompanyName },
+                { id: `Position-${idx}`, validator: Validators.validatePosition },
+                { id: `DateFrom-${idx}`, validator: (v, all) => Validators.validateWorkExpDateFrom(v, all, idx) },
+                { id: `DateTo-${idx}`, validator: (v, all) => Validators.validateWorkExpDateTo(v, all, idx) },
+                { id: `EmploymentType-${idx}`, validator: Validators.validateWorkExpEmploymentType }
+            );
+        });
+        document.querySelectorAll('.lang-block').forEach(block => {
+            const idx = block.dataset.index || "0";
+            fields.push(
+                { id: `Language-${idx}`, validator: (v, all) => Validators.validateLanguageName(v, all, idx) },
+                { id: `Listening-${idx}`, validator: Validators.validateLangLevel },
+                { id: `Reading-${idx}`, validator: Validators.validateLangLevel },
+                { id: `Writing-${idx}`, validator: Validators.validateLangLevel },
+                { id: `Speaking-${idx}`, validator: Validators.validateLangLevel },
+                { id: `Communication-${idx}`, validator: Validators.validateLangLevel },
+                { id: `IsNative-${idx}`, validator: Validators.validateNative }
+            );
+        });
+        document.querySelectorAll('.certificate-block').forEach(block => {
+            const idx = block.dataset.index || "0";
+            fields.push({
+                id: `CertificateFile_${idx}Id`,
+                validator: (v, all) => Validators.validateCertificateFile(v, all, idx)
+            });
+        });
+        return fields;
+    }
+
+    const baseForm = new BaseForm({
+        formSel: "#resume-form",
+        submitSel: "#resume-submit",
+        fields: getAllFields()
+    });
+    baseForm.init();
+
+    // --- Init obsługi uploadu plików ---
+    document.querySelectorAll('.input-file').forEach(setupFileInput);
+
+    function isBlockValid(block) {
+        return Array.from(block.querySelectorAll('input, select'))
+            .every(input => input.classList.contains('input-validation-success'));
+    }
+
+    function reindexLanguageBlocks() {
+        const blocks = document.querySelectorAll('#language-list .lang-block');
+        blocks.forEach((block, newIdx) => {
+            block.dataset.index = String(newIdx);
+            const mappings = [
+                { key: 'Language' },
+                { key: 'Listening' },
+                { key: 'Reading' },
+                { key: 'Writing' },
+                { key: 'Speaking' },
+                { key: 'Communication' },
+                { key: 'IsNative' }
+            ];
+            mappings.forEach(({ key }) => {
+                const el = block.querySelector(`[id^="${key}-"]`);
+                if (!el) return;
+                const oldId = el.id;
+                el.id = `${key}-${newIdx}`;
+                const label = block.querySelector(`label[for="${oldId}"]`);
+                if (label) label.setAttribute('for', el.id);
+                const name = el.getAttribute('name');
+                if (name) {
+                    el.setAttribute('name', name.replace(/\[\d+\]/, `[${newIdx}]`));
+                }
+            });
+        });
+    }
+
+
+
+    function reindexExperienceBlocks() {
+        const blocks = document.querySelectorAll('#experience-list .workexp-block');
+        blocks.forEach((block, newIdx) => {
+            block.dataset.index = String(newIdx);
+            const mappings = [
+                { key: 'CompanyName' },
+                { key: 'Position' },
+                { key: 'DateFrom' },
+                { key: 'DateTo' },
+                { key: 'EmploymentType' }
+            ];
+            mappings.forEach(({ key }) => {
+                const el = block.querySelector(`[id^="${key}-"]`);
+                if (!el) return;
+                const oldId = el.id;
+                el.id = `${key}-${newIdx}`;
+                const label = block.querySelector(`label[for="${oldId}"]`);
+                if (label) label.setAttribute('for', el.id);
+                const name = el.getAttribute('name');
+                if (name) {
+                    el.setAttribute('name', name.replace(/\[\d+\]/, `[${newIdx}]`));
+                }
+            });
+        });
+    }
+
+
+    function refreshExperienceButtons() {
+        const blocks = document.querySelectorAll('#experience-list .workexp-block');
+        document.querySelectorAll('#experience-list .exp-divider').forEach(hr => hr.remove());
+        blocks.forEach((block, idx) => {
+            let btnWrap = block.querySelector('.exp-actions');
+            if (!btnWrap) {
+                btnWrap = document.createElement('div');
+                btnWrap.className = 'exp-actions';
+                block.appendChild(btnWrap);
+            }
+            btnWrap.innerHTML = "";
+            if (blocks.length === 1) {
+                btnWrap.innerHTML =
+                    `<button type="button" class="add-exp-btn" ${isBlockValid(block) ? '' : 'disabled'}>
+                    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+                    Add Experience
+                </button>`;
+            } else if (idx === 0) {
+                btnWrap.innerHTML =
+                    `<button type="button" class="remove-exp-btn">
+                    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+                    Remove Experience
+                </button>`;
+            } else if (idx === blocks.length - 1) {
+                btnWrap.innerHTML =
+                    `<button type="button" class="remove-exp-btn">
+                    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+                    Remove Experience
+                </button>
+                <button type="button" class="add-exp-btn" ${isBlockValid(block) ? '' : 'disabled'}>
+                    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+                    Add Experience
+                </button>`;
+            } else {
+                btnWrap.innerHTML =
+                    `<button type="button" class="remove-exp-btn">
+                    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+                    Remove Experience
+                </button>`;
+            }
+            if (idx < blocks.length - 1) {
+                block.insertAdjacentHTML('afterend', '<hr class="exp-divider">');
+            }
+        });
+    }
+
+    document.getElementById('experience-list').addEventListener('click', async function (e) {
+        if (e.target.classList.contains('add-exp-btn')) {
+            const expList = document.getElementById('experience-list');
+            // SPINNER dla dodawania
+            const spinner = document.createElement('div');
+            spinner.className = 'exp-spinner';
+            spinner.innerHTML = '<span>Loading...</span>'; // możesz wsadzić SVG
+            expList.appendChild(spinner);
+
+            const nextIdx = expList.querySelectorAll('.workexp-block').length;
+            try {
+                const res = await fetch(`/Resumes/WorkExperiencePartial?index=${nextIdx}`);
+                const html = await res.text();
+                spinner.remove();
+                expList.insertAdjacentHTML('beforeend', html);
+                const newBlock = expList.lastElementChild;
+                if (newBlock) attachAutosaveListeners(newBlock);
+                baseForm.refreshValidations(getAllFields);
+                refreshExperienceButtons();
+            } catch (err) {
+                spinner.remove();
+                alert('Server error: cannot add block.');
+            }
+        }
+        if (e.target.classList.contains('remove-exp-btn')) {
+            const block = e.target.closest('.workexp-block');
+            if (!block) return;
+            // SPINNER dla usuwania experience
+            const spinner = document.createElement('div');
+            spinner.className = 'exp-spinner';
+            spinner.innerHTML = '<span>Removing...</span>'; // możesz wsadzić SVG
+            block.appendChild(spinner);
+
+            const idx = parseInt(block.dataset.index, 10);
+            try {
+                const { redirected } = await removeWorkExperienceOnServer(idx);
+                spinner.remove();
+                if (redirected) return;
+                block.remove();
+                reindexExperienceBlocks();
+                baseForm.refreshValidations(getAllFields);
+                refreshExperienceButtons();
+            } catch (err) {
+                spinner.remove();
+                alert('Server error: cannot remove block.');
+                console.error(err);
+            }
+        }
+    });
+
+
+    document.getElementById('experience-list').addEventListener('input', function () {
+        baseForm.refreshValidations(getAllFields);
+        refreshExperienceButtons();
+    });
+    document.getElementById('experience-list').addEventListener('change', function () {
+        baseForm.refreshValidations(getAllFields);
+        refreshExperienceButtons();
+    });
+
+    function isLangBlockValid(block) {
+        return Array.from(block.querySelectorAll('input, select'))
+            .filter(input => !(input.type === "checkbox" && input.id && input.id.startsWith("IsNative-")))
+            .every(input => input.classList.contains('input-validation-success'));
+    }
+
+    function refreshLanguageButtons() {
+        const blocks = document.querySelectorAll('#language-list .lang-block');
+        document.querySelectorAll('#language-list .lang-divider').forEach(hr => hr.remove());
+
+        blocks.forEach((block, idx) => {
+            let btnWrap = block.querySelector('.lang-actions');
+            if (!btnWrap) {
+                btnWrap = document.createElement('div');
+                btnWrap.className = 'lang-actions';
+                block.appendChild(btnWrap);
+            }
+            btnWrap.innerHTML = "";
+            let enableAdd = isLangBlockValid(block);
+
+            if (blocks.length === 1) {
+                btnWrap.innerHTML =
+                    `<button type="button" class="add-lang-btn" ${enableAdd ? '' : 'disabled'}>
+                        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+                        Add Language
+                    </button>`;
+            } else if (idx === 0) {
+                btnWrap.innerHTML =
+                    `<button type="button" class="remove-lang-btn">
+                        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+                        Remove Language
+                    </button>`;
+            } else if (idx === blocks.length - 1) {
+                btnWrap.innerHTML =
+                    `<button type="button" class="remove-lang-btn">
+                        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+                        Remove Language
+                    </button>
+                    <button type="button" class="add-lang-btn" ${enableAdd ? '' : 'disabled'}>
+                        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+                        Add Language
+                    </button>`;
+            } else {
+                btnWrap.innerHTML =
+                    `<button type="button" class="remove-lang-btn">
+                        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+                        Remove Language
+                    </button>`;
+            }
+            if (idx < blocks.length - 1) {
+                block.insertAdjacentHTML('afterend', '<hr class="lang-divider">');
+            }
+        });
+    }
+
+    document.getElementById('language-list').addEventListener('click', async function (e) {
+        if (e.target.classList.contains('add-lang-btn')) {
+            const langList = document.getElementById('language-list');
+            const spinner = document.createElement('div');
+            spinner.className = 'lang-spinner';
+            spinner.innerHTML = '<span>Loading...</span>';
+            langList.appendChild(spinner);
+
+            const nextIdx = langList.querySelectorAll('.lang-block').length;
+            try {
+                const res = await fetch(`/Resumes/LanguagePartial?index=${nextIdx}`);
+                const html = await res.text();
+                spinner.remove();
+                langList.insertAdjacentHTML('beforeend', html);
+                const newBlock = langList.lastElementChild;
+                if (newBlock) attachAutosaveListeners(newBlock);
+                initializeIncrementalSearchFields(langList);
+                baseForm.refreshValidations(getAllFields);
+                refreshLanguageButtons();
+            } catch (err) {
+                spinner.remove();
+                alert('Server error: cannot add block.');
+            }
+        }
+        if (e.target.classList.contains('remove-lang-btn')) {
+            const block = e.target.closest('.lang-block');
+            if (!block) return;
+            const spinner = document.createElement('div');
+            spinner.className = 'lang-spinner';
+            spinner.innerHTML = '<span>Removing...</span>';
+            block.appendChild(spinner);
+
+            const idx = parseInt(block.dataset.index, 10);
+            try {
+                const { redirected } = await removeLanguageOnServer(idx);
+                spinner.remove();
+                if (redirected) return;
+                block.remove();
+                reindexLanguageBlocks();
+                baseForm.refreshValidations(getAllFields);
+                refreshLanguageButtons();
+            } catch (err) {
+                spinner.remove();
+                alert('Server error: cannot remove block.');
+                console.error(err);
+            }
+        }
+    });
+
+
+    document.getElementById('language-list').addEventListener('input', function () {
+        baseForm.refreshValidations(getAllFields);
+        refreshLanguageButtons();
+    });
+    document.getElementById('language-list').addEventListener('change', function () {
+        baseForm.refreshValidations(getAllFields);
+        refreshLanguageButtons();
+    });
+
+    document.querySelectorAll('input, select, textarea').forEach(el => {
+        if (el.type === 'file') {
+            const hiddenSel = el.getAttribute('data-fileid-selector');
+            if (hiddenSel) {
+                const hidden = document.querySelector(hiddenSel);
+                if (hidden && hidden.value && hidden.value.trim() !== "") {
+                    el.dataset.touched = "true";
+                } else {
+                    el.dataset.touched = "";
+                }
+            } else {
+                el.dataset.touched = "";
+            }
+        } else if (el.value && el.value.trim() !== "") {
+            el.dataset.touched = "true";
+        } else {
+            el.dataset.touched = "";
+        }
+    });
+
+    function addCertificateBlock() {
+        const certList = document.getElementById('certificates-list');
+        const nextIdx = certList.querySelectorAll('.certificate-block').length;
+        fetch(`/Resumes/CertificatePartial?index=${nextIdx}`)
+            .then(res => res.text())
+            .then(html => {
+                certList.insertAdjacentHTML('beforeend', html);
+                const newBlock = certList.lastElementChild;
+                if (newBlock) {
+                    attachAutosaveListeners(newBlock);
+                    newBlock.querySelectorAll('input[type="file"]').forEach(setupFileInput);
+                }
+                baseForm.refreshValidations(getAllFields);
+            });
+    }
+
+    function ensureAlwaysOneEmptyCertificate() {
+        const certList = document.getElementById('certificates-list');
+        if (!certList) return;
+
+        const blocks = Array.from(certList.querySelectorAll('.certificate-block'));
+        let emptyBlocks = [];
+
+        blocks.forEach(block => {
+            const idx = block.dataset.index || "0";
+            const hidden = block.querySelector(`#CertificateFile_${idx}Id`);
+            if (!hidden || !hidden.value) emptyBlocks.push(block);
+        });
+
+        if (emptyBlocks.length === 0) {
+            addCertificateBlock();
+        } else if (emptyBlocks.length > 1) {
+            const blockToKeep = emptyBlocks[0];
+            for (let i = 1; i < emptyBlocks.length; i++) {
+                emptyBlocks[i].remove();
+            }
+            if (blockToKeep !== blocks[blocks.length - 1]) {
+                certList.appendChild(blockToKeep);
+            }
+        } else {
+            const emptyBlock = emptyBlocks[0];
+            if (emptyBlock !== blocks[blocks.length - 1]) {
+                certList.appendChild(emptyBlock);
+            }
+        }
+    }
+
+    document.addEventListener('change', function (e) {
+        if (e.target.matches('input[type="hidden"][id^="CertificateFile_"]')) {
+            const block = e.target.closest('.certificate-block');
+            ensureAlwaysOneEmptyCertificate();
+        }
+    });
+
+    ensureAlwaysOneEmptyCertificate();
+
+    baseForm.refreshValidations(getAllFields);
+    refreshLanguageButtons();
+    refreshExperienceButtons();
+
+
+    // ---- Apply for Jobs button logic ----
+    const applyBtn = document.getElementById('apply-btn');
+
+    function updateApplyButtonState() {
+        const invalidInputs = form.querySelectorAll('.input-validation-error, .field-validation-error');
+        applyBtn.disabled = invalidInputs.length > 0;
+    }
+    updateApplyButtonState();
+
+    form.addEventListener('input', updateApplyButtonState);
+    form.addEventListener('change', updateApplyButtonState);
+
+    // ---- Submit: wymusz touched na wszystkich polach! ----
+    form.addEventListener('submit', function (e) {
+        // Ustaw touched = true na wszystkich polach
+        form.querySelectorAll('input, select, textarea').forEach(el => {
+            el.dataset.touched = "true";
+        });
+
+        baseForm.refreshValidations(getAllFields);
+
+        const invalidInputs = form.querySelectorAll('.input-validation-error, .field-validation-error');
+        if (invalidInputs.length > 0) {
+            e.preventDefault();
+            invalidInputs[0].scrollIntoView({ behavior: 'smooth', block: 'center' });
+        } else {
+            // ---- WALIDACJA pozytywna, faktyczny submit ----
+            applyBtn.disabled = true;
+            applyBtn.innerText = 'Processing...';
+            applyBtn.style.backgroundColor = '#aaa';
+            applyBtn.style.cursor = 'not-allowed';
+        }
+    });
+}
+
+if (document.readyState !== 'loading') {
+    main();
+} else {
+    document.addEventListener('DOMContentLoaded', main);
+}

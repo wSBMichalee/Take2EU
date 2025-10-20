@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<!-- saved from url=(0036)https://localhost:7096/Account/Login -->
+<html lang="pl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, interactive-widget=resizes-content">
+    <title>Login - Take2EU - Take2EU</title>
+    <meta name="description" content="Take2EU - Your Gateway to European Employment">
+
+    <!-- Font globalny -->
+    <link rel="preconnect" href="https://fonts.googleapis.com/">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+    <link href="./Login - Take2EU - Take2EU_files/css2" rel="stylesheet">
+
+    <!-- Najpierw globalny CSS -->
+    <link rel="stylesheet" href="./Login - Take2EU - Take2EU_files/site.css">
+    <!-- Komponentowe (np. burger) -->
+    <link rel="stylesheet" href="./Login - Take2EU - Take2EU_files/burger-menu.css">
+      <link rel="stylesheet" href="./Login - Take2EU - Take2EU_files/cv-printable.css">
+
+    <!-- TU RenderSection - każdy widok może dołożyć swój CSS -->
+    
+    <link rel="stylesheet" href="./Login - Take2EU - Take2EU_files/form-field.css">
+    <link rel="stylesheet" href="./Login - Take2EU - Take2EU_files/user-details.css">
+
+
+    <!-- Pozostałe style, np. auto-scaffold/blazor, mogą być tu -->
+</head>
+<body>
+    <header>
+        <nav class="main-menu" role="navigation" aria-label="Main navigation">
+            <div class="menu-brand">
+                <a href="https://localhost:7096/" class="brand-link" aria-label="Take2EU - Go to homepage">Take2EU</a>
+            </div>
+            <div class="menu-actions">
+        <a href="https://localhost:7096/Orders/Create" class="buy-now" aria-label="Start your European employment application">Buy now</a>
+                <a href="https://localhost:7096/Account/Login" class="account" aria-label="Sign in to your account">My Account</a>
+                <div class="burger-menu-wrapper">
+<button type="button" class="burger-menu-btn" aria-label="Toggle user menu" aria-expanded="false" aria-haspopup="menu" aria-controls="burger-menu">
+  <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+    <path d="M3 12h18M3 6h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
+  </svg>
+</button>
+
+<div id="burger-menu" class="burger-menu-dropdown hidden" aria-hidden="true">
+  <div class="burger-menu-content" role="menu">
+    <a href="https://localhost:7096/Account/Login" class="burger-menu-item" role="menuitem" tabindex="0">
+      <span class="menu-icon" aria-hidden="true">🔑</span>Log in
+    </a>
+    <a href="https://localhost:7096/Orders/Create" class="burger-menu-item" role="menuitem" tabindex="0">
+      <span class="menu-icon" aria-hidden="true">📝</span>Create account
+    </a>
+  </div>
+</div></div>
+
+            </div>
+        </nav>
+    </header>
+    <main role="main" class="content-wrapper">
+        <script src="./Login - Take2EU - Take2EU_files/form-field.js.pobrane" defer=""></script>
+        <div class="user-details-container">
+    <div class="user-details-card">
+        <div class="page-header">
+            <div class="header-content">
+                <h1 class="page-title">Login</h1>
+                <p class="page-subtitle">Sign in to access your account</p>
+            </div>
+        </div>
+        <div class="section">
+            <form method="post" class="profile-form" id="login-form" autocomplete="off" action="https://localhost:7096/account/login">
+                
+                <div class="form-field"><label class="form-label" for="Email">Email</label><div class="tooltip"><input aria-describedby="Email-error" autocomplete="email" class="input-field" data-val="true" data-val-email="Please enter a valid email address" data-val-required="Email is required" id="Email" maxlength="100" name="Email" placeholder="your@email.com" type="email" value=""><span class="tooltip-text field-validation-valid" data-valmsg-for="Email" data-valmsg-replace="true" id="Email-error"></span></div></div>
+                <div class="form-field"><label class="form-label" for="Password">Password</label><div class="tooltip"><input aria-describedby="Password-error" autocomplete="current-password" class="input-field" data-val="true" data-val-length="Password must be at least 6 characters long" data-val-length-max="100" data-val-length-min="6" data-val-required="Password is required" id="Password" maxlength="100" name="Password" placeholder="Enter your password" type="password" value=""><span class="tooltip-text field-validation-valid" data-valmsg-for="Password" data-valmsg-replace="true" id="Password-error"></span></div></div>
+                <div class="form-field"><label class="form-label" style="visibility: hidden; display: block;">&nbsp;</label><label class="custom-checkbox"><input id="RememberMe" name="RememberMe" type="checkbox" value="true"><span class="custom-checkmark"></span><span>Remember me</span></label><span class="tooltip-text field-validation-valid" data-valmsg-for="RememberMe" data-valmsg-replace="true" id="RememberMe-error"></span></div>
+                <button type="submit" class="btn-primary btn-login">
+                    <span class="btn-text">Sign In</span>
+                </button>
+            <input name="__RequestVerificationToken" type="hidden" value="CfDJ8H5HZDrq3TFLsW_TpeW4Yg5apt5hc-KTuqf4Gu931Sf9Z60NAZV1AC0JF_68ux9fyZhy2q3IkVvvHog4qzRQAQ1iSQ_XExCXtsUzjEClhFaoCNsF0iHFtpYotq6OZZWLA7CTYAcxVnoLcbgD6YWh6hQ"></form>
+            <div class="login-footer">
+                <a href="https://localhost:7096/ForgotPassword" class="forgot-link">Forgot password?</a><br>
+                <a href="https://localhost:7096/Order" class="signup-link">Start Application</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+    </main>
+    
+    <script type="module" src="./Login - Take2EU - Take2EU_files/login-form.js.pobrane"></script>
+
+    <script src="./Login - Take2EU - Take2EU_files/burger-menu.js.pobrane" defer=""></script>
+
+<!-- Visual Studio Browser Link -->
+<script type="text/javascript" src="./Login - Take2EU - Take2EU_files/browserLink" async="async" id="__browserLink_initializationData" data-requestid="e59951164a3e4dfd8ebe60ffeb6ee6c2" data-requestmappingfromserver="false" data-connecturl="http://localhost:60694/7ad38c5392074f1496c7a645265da9b4/browserLink"></script>
+<!-- End Browser Link -->
+<script src="./Login - Take2EU - Take2EU_files/aspnetcore-browser-refresh.js.pobrane"></script>
+
+</body></html>

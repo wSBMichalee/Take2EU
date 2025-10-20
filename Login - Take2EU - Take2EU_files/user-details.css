@@ -1,0 +1,136 @@
+﻿.user-details-container {
+    max-width: 420px;
+    margin: 36px auto;
+    padding: 0 10px;
+}
+
+.user-details-card {
+    background: transparent;
+    border-radius: 0;
+    box-shadow: none;
+    padding: 0;
+}
+
+.page-header {
+    margin-bottom: 16px;
+    text-align: center;
+}
+
+.header-content .page-title, .page-title {
+    font-size: 1.36rem;
+    font-weight: 700;
+    color: #123456;
+    margin-bottom: 2px;
+    text-align: center;
+}
+
+.header-content .page-subtitle, .page-subtitle {
+    color: #5c8ed8;
+    font-size: 1.01rem;
+    margin-top: 0;
+    text-align: center;
+}
+
+.section {
+    margin-bottom: 30px;
+}
+
+.section-header {
+    margin-bottom: 14px;
+}
+
+.section-title {
+    font-size: 1.12em;
+    font-weight: 600;
+    color: #123456;
+    margin-bottom: 2px;
+    text-align: left;
+}
+
+.section-description {
+    color: #5d5d5d;
+    font-size: .98em;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+/* --- Naprawa układu dwóch pól w jednym wierszu --- */
+.form-row {
+    display: flex;
+    gap: 16px;
+    width: 100%;
+    min-width: 0;
+}
+
+    .form-row > .form-group {
+        flex: 1 1 0%;
+        min-width: 0;
+    }
+
+    .form-row .input-field {
+        width: 100%;
+        min-width: 0;
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+
+@media (max-width: 700px) {
+    .user-details-container {
+        max-width: 99vw;
+    }
+
+    .user-details-card {
+        padding: 0;
+    }
+
+    .form-row {
+        flex-direction: column;
+        gap: 0;
+    }
+
+        .form-row > .form-group {
+            flex: none;
+            min-width: unset;
+        }
+}
+
+.success-alert, .error-alert {
+    max-width: 330px;
+    margin: 14px auto 14px auto;
+    text-align: center;
+    border-radius: 8px;
+    font-size: 1.04em;
+    padding: 10px 14px;
+}
+
+.success-alert {
+    color: #1e7e34;
+    background: #e6fcf0;
+    border: 1.6px solid #059669;
+}
+
+.success-icon {
+    font-size: 1.1em;
+    margin-right: 4px;
+}
+
+.error-alert {
+    color: #b91c1c;
+    background: #fff7f5;
+    border: 1.6px solid #ef4444;
+}
+
+.error-icon {
+    font-size: 1.1em;
+    margin-right: 4px;
+}
+
+.email-note {
+    display: block;
+    font-size: .94em;
+    color: #7e8595;
+    margin-top: 3px;
+    margin-bottom: 10px;
+    font-style: italic;
+    letter-spacing: 0.01em;
+}

@@ -1,0 +1,104 @@
+﻿/* wwwroot/css/components/burger-menu.css */
+.hidden {
+    display: none !important;
+}
+
+/* Wrapper trzyma kontekst pozycjonowania przy pasku menu */
+.burger-menu-wrapper {
+    position: relative;
+}
+
+/* Przycisk */
+.burger-menu-btn {
+    background: none;
+    border: 1px solid transparent;
+    padding: 6px 8px;
+    cursor: pointer;
+    line-height: 0;
+    border-radius: 8px;
+}
+
+    .burger-menu-btn:hover {
+        background: #f6f7fb;
+    }
+
+    .burger-menu-btn:focus {
+        outline: 2px solid #3a78f0;
+        outline-offset: 2px;
+    }
+
+/* Dropdown */
+.burger-menu-dropdown {
+    position: absolute;
+    right: 0;
+    top: 44px;
+    background: #fff;
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    box-shadow: 0 12px 28px rgba(0,0,0,.12), 0 2px 4px rgba(0,0,0,.08);
+    z-index: 1000;
+    min-width: 240px;
+    overflow: hidden;
+    transform-origin: top right;
+    transform: scale(.98);
+    opacity: 0;
+    transition: transform .12s ease, opacity .12s ease;
+}
+
+    .burger-menu-dropdown:not(.hidden) {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+.burger-menu-content {
+    display: flex;
+    flex-direction: column;
+    padding: 6px;
+}
+
+/* Pozycje */
+.burger-menu-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 12px;
+    color: #111827;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 0.95rem;
+}
+
+    .burger-menu-item:hover, .burger-menu-item:focus {
+        background: #f3f4f6;
+        outline: none;
+    }
+
+    .burger-menu-item.logout {
+        color: #b91c1c;
+    }
+
+.burger-menu-divider {
+    height: 1px;
+    background: #e5e7eb;
+    margin: 6px 0;
+}
+
+.menu-icon {
+    width: 1.25rem;
+    display: inline-flex;
+    justify-content: center;
+}
+
+/* Mobile: dociśnij do prawej krawędzi i zwiększ tap targets */
+@media (max-width: 500px) {
+    .burger-menu-dropdown {
+        right: 6px;
+        top: 48px;
+        min-width: 220px;
+    }
+
+    .burger-menu-item {
+        padding: 12px 14px;
+        font-size: 1rem;
+    }
+}

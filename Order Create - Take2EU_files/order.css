@@ -1,0 +1,90 @@
+﻿.order-container {
+    max-width: 360px;
+    margin: 24px auto;
+    padding: 0 10px;
+    text-align: center;
+}
+
+/* SUMMARY: wyśrodkowanie sekcji i wiersza z kwotą */
+.summary-section {
+    max-width: 360px;
+    margin: 20px auto;
+    text-align: center; /* było left → center */
+}
+
+    .summary-section h3 {
+        margin-bottom: 12px;
+    }
+
+    .summary-section strong {
+        display: flex;
+        align-items: center;
+        justify-content: center; /* dodane: środek w osi głównej */
+        gap: 12px;
+        font-weight: 700;
+        font-size: 1.05rem;
+    }
+
+    .summary-section #total-amount {
+        min-width: 80px;
+        background: #eee;
+        padding: 6px 12px;
+        border-radius: 12px;
+        color: #222;
+        text-align: right;
+    }
+
+    .summary-section .currency {
+        color: #444;
+        font-weight: 600;
+    }
+
+/* PAY: spójny wygląd i centrowanie jak “get now” */
+.pay-btn {
+    display: inline-flex; /* centrowanie zawartości przycisku */
+    align-items: center;
+    justify-content: center;
+    padding: 12px 24px;
+    border-radius: 12px;
+    border: 0;
+    background: #2563EB; /* zbliżone do “get now” */
+    color: #fff;
+    font-weight: 700;
+    font-size: 1.1rem;
+    width: auto; /* zamiast 100% — łatwiej wyśrodkować */
+    min-width: 200px; /* stabilna szerokość wizualna */
+    margin-inline: auto; /* wyśrodkowanie w wierszu */
+    transition: background-color .15s ease-in-out, transform .1s ease;
+}
+
+    .pay-btn:disabled {
+        background: #aaa;
+        color: #eee;
+        cursor: not-allowed;
+        transform: none;
+    }
+
+    .pay-btn:hover:not(:disabled) {
+        background: #1D4ED8; /* hover spójny z “get now” */
+    }
+
+    .pay-btn:active:not(:disabled) {
+        transform: translateY(1px);
+    }
+
+    .pay-btn:focus-visible {
+        outline: 3px solid rgba(37,99,235,.45);
+        outline-offset: 2px;
+    }
+
+/* Mobile: pełna szerokość, ale z limitem, nadal wyśrodkowany */
+@media (max-width: 480px) {
+    .pay-btn {
+        width: 100%;
+        max-width: 320px;
+    }
+
+    .summary-section strong {
+        justify-content: center; /* utrwalenie środka na wąskich ekranach */
+    }
+}
