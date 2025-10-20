@@ -675,287 +675,125 @@ option:checked {
     box-shadow: 0 0 0 2px rgba(107, 170, 221, 0.4);
 }
 
-/* === FOOTER === */
+/* === FOOTER RESPONSYWNY === */
 .main-footer {
     background-color: #0A0118FA;
     color: #ffffff;
     text-align: center;
-    padding: 30px 0;
+    padding: 30px 20px;
     font-size: 13px;
     margin-top: 60px;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 10px;
 }
 
 .footer-container {
-    text-align: center;
+    max-width: 1100px;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
 }
 
-/* === RESPONSYWNOŚĆ – GLOBAL === */
-
-/* TABLETY (max-width: 992px) */
-@media (max-width: 992px) {
-    body {
-        padding-top: 70px;
-    }
-
-    .header-container {
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
-        gap: 15px;
-    }
-
-    .nav-links {
-        flex-direction: row;
-        flex-wrap: wrap;
-        gap: 12px;
-    }
-
-    .pricing-container,
-    .services-grid,
-    .steps-grid {
-        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-        gap: 25px;
-    }
-
-    .pricing-plan,
-    .service-box,
-    .step-box {
-        padding: 30px 20px;
-    }
-
-    .login-container,
-    .register-container,
-    .bank-container,
-    .resume-container {
-        max-width: 100%;
-        padding: 25px 20px;
-    }
-
-    .form-row {
-        flex-direction: column;
-        gap: 10px;
-    }
-
-    .button {
-        font-size: 13px;
-        padding: 10px 18px;
-    }
+.footer-container a {
+    color: #6BAADD;
+    text-decoration: none;
+    font-size: 13px;
 }
 
-/* TELEFONY (max-width: 768px) */
-@media (max-width: 768px) {
-
-    .main-header {
-        padding: 10px 20px;
-    }
-
-    .header-container {
-        flex-wrap: wrap;
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
-        gap: 10px;
-    }
-
-    .nav-links {
-        flex-direction: row;
-        flex-wrap: wrap;
-        align-items: center;
-        gap: 10px;
-    }
-
-    .pricing-section,
-    .services-section,
-    .steps-section {
-        padding: 60px 15px;
-    }
-
-    .pricing-container,
-    .services-grid,
-    .steps-grid {
-        grid-template-columns: 1fr;
-        gap: 25px;
-    }
-
-    .pricing-plan h1 {
-        font-size: 24px;
-    }
-
-    .service-box h4,
-    .steps-title {
-        font-size: 20px;
-    }
-
-    .pricing-plan,
-    .service-box,
-    .step-box {
-        text-align: center;
-    }
-
-    .register-container,
-    .login-container,
-    .bank-container {
-        width: 100%;
-        margin: 0 auto;
-    }
-
-    .bank-buttons {
-        flex-direction: column;
-    }
-
-    .form-row {
-        flex-direction: column;
-    }
-
-    .phone-input {
-        flex-direction: row;
-        width: 100%;
-    }
-
-    .phone-input select.country-code {
-        width: 30%;
-    }
-
-    .phone-input input {
-        width: 70%;
-    }
-
-    .main-footer {
-        font-size: 12px;
-        padding: 20px;
-    }
+.footer-container a:hover {
+    text-decoration: underline;
 }
 
-/* MAŁE TELEFONY (max-width: 480px) */
-@media (max-width: 480px) {
-    .logo {
-        height: 28px;
-    }
-
-    .nav-links a {
-        font-size: 13px;
-    }
-
-    h1 {
-        font-size: 22px;
-    }
-
-    h2 {
-        font-size: 18px;
-    }
-
-    .pricing-plan h1 {
-        font-size: 22px;
-    }
-
-    .pricing-plan p,
-    .service-box p,
-    .step-box p {
-        font-size: 14px;
-    }
-
-    input,
-    select,
-    textarea {
-        font-size: 14px;
-        padding: 8px 10px;
-    }
-
-    .button {
-        font-size: 12px;
-        padding: 8px 14px;
-    }
-
-    .pricing-section,
-    .services-section,
-    .steps-section {
-        padding: 50px 10px;
-    }
-
-    .login-container,
-    .register-container {
-        padding: 20px 15px;
-    }
-
-    .resume-container {
-        padding: 20px;
-    }
-
-    .bank-container {
-        padding: 25px 15px;
-    }
-}
-
-
-/* === HEADER === */
+/* === HEADER RESPONSYWNY === */
 .header-container {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     background: #0A0118;
-    padding: 15px 20px;
+    padding: 8px 16px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     z-index: 1000;
 }
 
-.header-container .logo {
-    font-weight: bold;
-    font-size: 20px;
-    color: white;
+.logo-img {
+    height: 32px;
+    display: block;
 }
 
+.header-buttons {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
 
-.header-container a.button {
-    padding: 8px 15px;
-    background: #6BAADD;
+.header-buttons a.button {
+    padding: 6px 12px;
     border-radius: 20px;
+    font-size: 12px;
+    background: linear-gradient(140deg, #6BAADD 0%, #274E89 100%);
     color: white;
     text-decoration: none;
     font-weight: 500;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.header-container a.button:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 10px rgba(107, 170, 221, 0.5);
-}
-
-.header-container .hamburger {
-    font-size: 30px;
+.hamburger {
+    font-size: 24px;
     background: none;
     border: none;
     color: white;
     cursor: pointer;
+    display: flex;
+    align-items: center;
 }
 
-.header-container .dropdown-menu {
+.dropdown-menu {
     display: none;
     position: absolute;
-    top: 60px;
-    right: 20px;
+    top: 45px;
+    right: 16px;
     background: #0A0118;
-    padding: 15px;
+    padding: 10px;
     border-radius: 10px;
     flex-direction: column;
-    gap: 10px;
+    gap: 8px;
     z-index: 1001;
+    font-size: 14px;
 }
 
-.header-container .dropdown-menu.show {
+.dropdown-menu.show {
     display: flex;
 }
 
-.header-container .dropdown-menu a {
+.dropdown-menu a {
+    padding: 6px 8px;
     color: white;
+    text-decoration: none;
 }
 
-.logo-img {
-    height: 40px;
+/* === RESPONSYWNOŚĆ === */
+@media (max-width: 480px) {
+    .header-buttons a.button {
+        font-size: 11px;
+        padding: 5px 10px;
+    }
 
+    .logo-img {
+        height: 28px;
+    }
+
+    .dropdown-menu {
+        font-size: 13px;
+    }
 }
