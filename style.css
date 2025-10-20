@@ -782,18 +782,117 @@ option:checked {
     text-decoration: none;
 }
 
-/* === RESPONSYWNOŚĆ === */
+/* === RESPONSYWNOŚĆ SEKCJI === */
+@media (max-width: 1024px) {
+
+    .pricing-section,
+    .steps-section,
+    .services-section,
+    .login-section,
+    .register-section,
+    .bank-section,
+    .resume-section {
+        padding: 80px 15px;
+    }
+
+    .pricing-container,
+    .steps-grid,
+    .services-grid {
+        gap: 30px;
+    }
+
+    .pricing-plan,
+    .step-box,
+    .service-box,
+    .login-container,
+    .register-container,
+    .bank-container,
+    .resume-container {
+        padding: 30px 20px;
+    }
+
+    .form-row {
+        flex-direction: column;
+        gap: 15px;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .pricing-section,
+    .steps-section,
+    .services-section,
+    .login-section,
+    .register-section,
+    .bank-section,
+    .resume-section {
+        padding: 60px 15px;
+    }
+
+    .pricing-container,
+    .steps-grid,
+    .services-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    .pricing-plan,
+    .step-box,
+    .service-box,
+    .login-container,
+    .register-container,
+    .bank-container,
+    .resume-container {
+        padding: 25px 15px;
+    }
+}
+
 @media (max-width: 480px) {
-    .header-buttons a.button {
-        font-size: 11px;
-        padding: 5px 10px;
+
+    .pricing-section,
+    .steps-section,
+    .services-section,
+    .login-section,
+    .register-section,
+    .bank-section,
+    .resume-section {
+        padding: 40px 10px;
     }
 
-    .logo-img {
-        height: 28px;
+    .pricing-plan h1 {
+        font-size: 24px;
     }
 
-    .dropdown-menu {
-        font-size: 13px;
+    .pricing-plan h2 {
+        font-size: 18px;
+    }
+
+    .step-icon,
+    .service-icon {
+        font-size: 35px;
+    }
+
+    .login-container,
+    .register-container,
+    .bank-container,
+    .resume-container {
+        padding: 20px 15px;
+    }
+
+    .resume-container {
+        padding: 20px 15px;
+    }
+
+    .form-row {
+        flex-direction: column;
+    }
+
+    .phone-input {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .phone-input select.country-code {
+        width: 100%;
     }
 }
