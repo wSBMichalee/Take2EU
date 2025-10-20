@@ -11,81 +11,6 @@ body {
     color: #fff;
 }
 
-/* === HEADER === */
-.main-header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background-color: #0A0118FA;
-    padding: 15px 40px;
-    z-index: 1000;
-    display: flex;
-    justify-content: center;
-}
-
-.header-container {
-    width: 100%;
-    max-width: 1200px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.logo {
-    height: 40px;
-}
-
-.nav-links {
-    display: flex;
-    align-items: center;
-    gap: 30px;
-}
-
-.nav-links a {
-    color: #fff;
-    text-decoration: none;
-    font-size: 14px;
-    transition: opacity 0.2s ease;
-}
-
-.nav-links a:hover {
-    opacity: 0.7;
-}
-
-/* === DROPDOWN === */
-.dropdown {
-    position: relative;
-    display: inline-block;
-}
-
-.dropdown-content {
-    display: none;
-    position: absolute;
-    right: 0;
-    background-color: #fff;
-    min-width: 180px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-    border-radius: 10px;
-    overflow: hidden;
-    z-index: 10;
-}
-
-.dropdown-content a {
-    color: #222;
-    padding: 12px 16px;
-    display: block;
-    text-decoration: none;
-    font-size: 14px;
-}
-
-.dropdown-content a:hover {
-    background-color: #f3f3f3;
-}
-
-.dropdown:hover .dropdown-content {
-    display: block;
-}
 
 /* === BUTTONS === */
 .button {
@@ -704,10 +629,6 @@ option:checked {
     color: #000000;
 }
 
-/* ========================================
-   WYBÓR NUMERU TELEFONU – POPRAWIONA WERSJA
-   ======================================== */
-
 .phone-input {
     display: flex;
     align-items: center;
@@ -769,4 +690,272 @@ option:checked {
 
 .footer-container {
     text-align: center;
+}
+
+/* === RESPONSYWNOŚĆ – GLOBAL === */
+
+/* TABLETY (max-width: 992px) */
+@media (max-width: 992px) {
+    body {
+        padding-top: 70px;
+    }
+
+    .header-container {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        gap: 15px;
+    }
+
+    .nav-links {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    .pricing-container,
+    .services-grid,
+    .steps-grid {
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 25px;
+    }
+
+    .pricing-plan,
+    .service-box,
+    .step-box {
+        padding: 30px 20px;
+    }
+
+    .login-container,
+    .register-container,
+    .bank-container,
+    .resume-container {
+        max-width: 100%;
+        padding: 25px 20px;
+    }
+
+    .form-row {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .button {
+        font-size: 13px;
+        padding: 10px 18px;
+    }
+}
+
+/* TELEFONY (max-width: 768px) */
+@media (max-width: 768px) {
+
+    .main-header {
+        padding: 10px 20px;
+    }
+
+    .header-container {
+        flex-wrap: wrap;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+    }
+
+    .nav-links {
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .pricing-section,
+    .services-section,
+    .steps-section {
+        padding: 60px 15px;
+    }
+
+    .pricing-container,
+    .services-grid,
+    .steps-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    .pricing-plan h1 {
+        font-size: 24px;
+    }
+
+    .service-box h4,
+    .steps-title {
+        font-size: 20px;
+    }
+
+    .pricing-plan,
+    .service-box,
+    .step-box {
+        text-align: center;
+    }
+
+    .register-container,
+    .login-container,
+    .bank-container {
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    .bank-buttons {
+        flex-direction: column;
+    }
+
+    .form-row {
+        flex-direction: column;
+    }
+
+    .phone-input {
+        flex-direction: row;
+        width: 100%;
+    }
+
+    .phone-input select.country-code {
+        width: 30%;
+    }
+
+    .phone-input input {
+        width: 70%;
+    }
+
+    .main-footer {
+        font-size: 12px;
+        padding: 20px;
+    }
+}
+
+/* MAŁE TELEFONY (max-width: 480px) */
+@media (max-width: 480px) {
+    .logo {
+        height: 28px;
+    }
+
+    .nav-links a {
+        font-size: 13px;
+    }
+
+    h1 {
+        font-size: 22px;
+    }
+
+    h2 {
+        font-size: 18px;
+    }
+
+    .pricing-plan h1 {
+        font-size: 22px;
+    }
+
+    .pricing-plan p,
+    .service-box p,
+    .step-box p {
+        font-size: 14px;
+    }
+
+    input,
+    select,
+    textarea {
+        font-size: 14px;
+        padding: 8px 10px;
+    }
+
+    .button {
+        font-size: 12px;
+        padding: 8px 14px;
+    }
+
+    .pricing-section,
+    .services-section,
+    .steps-section {
+        padding: 50px 10px;
+    }
+
+    .login-container,
+    .register-container {
+        padding: 20px 15px;
+    }
+
+    .resume-container {
+        padding: 20px;
+    }
+
+    .bank-container {
+        padding: 25px 15px;
+    }
+}
+
+
+/* === HEADER === */
+.header-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #0A0118;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+}
+
+.header-container .logo {
+    font-weight: bold;
+    font-size: 20px;
+    color: white;
+}
+
+
+.header-container a.button {
+    padding: 8px 15px;
+    background: #6BAADD;
+    border-radius: 20px;
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.header-container a.button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 10px rgba(107, 170, 221, 0.5);
+}
+
+.header-container .hamburger {
+    font-size: 30px;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+.header-container .dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    background: #0A0118;
+    padding: 15px;
+    border-radius: 10px;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 1001;
+}
+
+.header-container .dropdown-menu.show {
+    display: flex;
+}
+
+.header-container .dropdown-menu a {
+    color: white;
+}
+
+.logo-img {
+    height: 40px;
+
 }

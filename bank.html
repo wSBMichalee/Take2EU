@@ -10,11 +10,23 @@
 
 <body>
 
-    <header class="main-header">
-        <div class="header-container">
-            <h1 style="color:#6BAADD; font-size:18px;">My Bank</h1>
-        </div>
-    </header>
+    <div id="header-placeholder"></div>
+
+    <script>
+        fetch("hamburger.html")
+            .then(res => res.text())
+            .then(data => {
+                document.getElementById("header-placeholder").innerHTML = data
+                const hamburger = document.getElementById("hamburger");
+                const dropdown = document.getElementById("dropdown-menu");
+
+                if (hamburger && dropdown) {
+                    hamburger.addEventListener("click", () => {
+                        dropdown.classList.toggle("show");
+                    });
+                }
+            })
+    </script>
 
     <section class="bank-section">
         <div class="bank-container">
