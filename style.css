@@ -11,81 +11,6 @@ body {
     color: #fff;
 }
 
-/* === HEADER === */
-.main-header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background-color: #0A0118FA;
-    padding: 15px 40px;
-    z-index: 1000;
-    display: flex;
-    justify-content: center;
-}
-
-.header-container {
-    width: 100%;
-    max-width: 1200px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.logo {
-    height: 40px;
-}
-
-.nav-links {
-    display: flex;
-    align-items: center;
-    gap: 30px;
-}
-
-.nav-links a {
-    color: #fff;
-    text-decoration: none;
-    font-size: 14px;
-    transition: opacity 0.2s ease;
-}
-
-.nav-links a:hover {
-    opacity: 0.7;
-}
-
-/* === DROPDOWN === */
-.dropdown {
-    position: relative;
-    display: inline-block;
-}
-
-.dropdown-content {
-    display: none;
-    position: absolute;
-    right: 0;
-    background-color: #fff;
-    min-width: 180px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-    border-radius: 10px;
-    overflow: hidden;
-    z-index: 10;
-}
-
-.dropdown-content a {
-    color: #222;
-    padding: 12px 16px;
-    display: block;
-    text-decoration: none;
-    font-size: 14px;
-}
-
-.dropdown-content a:hover {
-    background-color: #f3f3f3;
-}
-
-.dropdown:hover .dropdown-content {
-    display: block;
-}
 
 /* === BUTTONS === */
 .button {
@@ -704,10 +629,6 @@ option:checked {
     color: #000000;
 }
 
-/* ========================================
-   WYBÓR NUMERU TELEFONU – POPRAWIONA WERSJA
-   ======================================== */
-
 .phone-input {
     display: flex;
     align-items: center;
@@ -754,19 +675,224 @@ option:checked {
     box-shadow: 0 0 0 2px rgba(107, 170, 221, 0.4);
 }
 
-/* === FOOTER === */
+/* === FOOTER RESPONSYWNY === */
 .main-footer {
     background-color: #0A0118FA;
     color: #ffffff;
     text-align: center;
-    padding: 30px 0;
+    padding: 30px 20px;
     font-size: 13px;
     margin-top: 60px;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 10px;
 }
 
 .footer-container {
-    text-align: center;
+    max-width: 1100px;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+.footer-container a {
+    color: #6BAADD;
+    text-decoration: none;
+    font-size: 13px;
+}
+
+.footer-container a:hover {
+    text-decoration: underline;
+}
+
+/* === HEADER RESPONSYWNY === */
+.header-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #0A0118;
+    padding: 8px 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+}
+
+.logo-img {
+    height: 32px;
+    display: block;
+}
+
+.header-buttons {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.header-buttons a.button {
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    background: linear-gradient(140deg, #6BAADD 0%, #274E89 100%);
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hamburger {
+    font-size: 24px;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 45px;
+    right: 16px;
+    background: #0A0118;
+    padding: 10px;
+    border-radius: 10px;
+    flex-direction: column;
+    gap: 8px;
+    z-index: 1001;
+    font-size: 14px;
+}
+
+.dropdown-menu.show {
+    display: flex;
+}
+
+.dropdown-menu a {
+    padding: 6px 8px;
+    color: white;
+    text-decoration: none;
+}
+
+/* === RESPONSYWNOŚĆ SEKCJI === */
+@media (max-width: 1024px) {
+
+    .pricing-section,
+    .steps-section,
+    .services-section,
+    .login-section,
+    .register-section,
+    .bank-section,
+    .resume-section {
+        padding: 80px 15px;
+    }
+
+    .pricing-container,
+    .steps-grid,
+    .services-grid {
+        gap: 30px;
+    }
+
+    .pricing-plan,
+    .step-box,
+    .service-box,
+    .login-container,
+    .register-container,
+    .bank-container,
+    .resume-container {
+        padding: 30px 20px;
+    }
+
+    .form-row {
+        flex-direction: column;
+        gap: 15px;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .pricing-section,
+    .steps-section,
+    .services-section,
+    .login-section,
+    .register-section,
+    .bank-section,
+    .resume-section {
+        padding: 60px 15px;
+    }
+
+    .pricing-container,
+    .steps-grid,
+    .services-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    .pricing-plan,
+    .step-box,
+    .service-box,
+    .login-container,
+    .register-container,
+    .bank-container,
+    .resume-container {
+        padding: 25px 15px;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .pricing-section,
+    .steps-section,
+    .services-section,
+    .login-section,
+    .register-section,
+    .bank-section,
+    .resume-section {
+        padding: 40px 10px;
+    }
+
+    .pricing-plan h1 {
+        font-size: 24px;
+    }
+
+    .pricing-plan h2 {
+        font-size: 18px;
+    }
+
+    .step-icon,
+    .service-icon {
+        font-size: 35px;
+    }
+
+    .login-container,
+    .register-container,
+    .bank-container,
+    .resume-container {
+        padding: 20px 15px;
+    }
+
+    .resume-container {
+        padding: 20px 15px;
+    }
+
+    .form-row {
+        flex-direction: column;
+    }
+
+    .phone-input {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .phone-input select.country-code {
+        width: 100%;
+    }
 }
