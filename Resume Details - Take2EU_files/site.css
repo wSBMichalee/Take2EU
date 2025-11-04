@@ -1,5 +1,4 @@
-﻿/* --- GLOBAL STYLES --- */
-html,
+﻿html,
 body {
     margin: 0;
     padding: 0;
@@ -36,7 +35,6 @@ body {
     color: #cfcfcf;
 }
 
-/* --- MAIN MENU --- */
 .main-menu {
     display: flex;
     align-items: center;
@@ -46,7 +44,6 @@ body {
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     box-shadow: 0 0 10px rgba(107, 170, 221, 0.2);
     flex-wrap: nowrap;
-    /* utrzymanie elementów w jednej linii */
 }
 
 .logo img {
@@ -121,7 +118,6 @@ body {
     box-shadow: 0 0 15px rgba(107, 170, 221, 0.6);
 }
 
-/* --- BUTTONS --- */
 .btn-primary,
 .btn-logout,
 .btn-login {
@@ -222,7 +218,6 @@ body {
     outline-offset: 2px;
 }
 
-/* --- RESPONSIVE STYLES --- */
 @media (max-width: 1024px) {
     .main-menu {
         padding: 12px 20px;
@@ -252,7 +247,6 @@ body {
 @media (max-width: 768px) {
     .main-menu {
         flex-wrap: nowrap;
-        /* utrzymanie jednej linii */
         justify-content: space-between;
         padding: 10px 15px;
         gap: 10px;
@@ -290,7 +284,6 @@ body {
 @media (max-width: 480px) {
     .main-menu {
         flex-wrap: nowrap;
-        /* jedna linia na telefonach */
         justify-content: space-between;
         padding: 8px 10px;
         gap: 6px;

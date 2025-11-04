@@ -1,9 +1,7 @@
-﻿/* wwwroot/css/components/burger-menu.css */
-.hidden {
+﻿.hidden {
     display: none !important;
 }
 
-/* Wrapper trzyma kontekst pozycjonowania przy pasku menu */
 .burger-menu-wrapper {
     position: relative;
 }
@@ -36,7 +34,6 @@
 
 }
 
-/* Dropdown */
 .burger-menu-dropdown {
     position: absolute;
     right: 0;
@@ -65,7 +62,6 @@
     padding: 6px;
 }
 
-/* Pozycje */
 .burger-menu-item {
     display: flex;
     align-items: center;
@@ -99,7 +95,6 @@
     justify-content: center;
 }
 
-/* Mobile: dociśnij do prawej krawędzi i zwiększ tap targets */
 @media (max-width: 500px) {
     .burger-menu-dropdown {
         right: 6px;

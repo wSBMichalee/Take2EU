@@ -1,5 +1,4 @@
-﻿/* --- GLOBAL STYLES --- */
-html,
+﻿html,
 body {
     margin: 0;
     padding: 0;
@@ -16,7 +15,6 @@ body {
     box-sizing: inherit;
 }
 
-/* --- HEADERS --- */
 .page-header,
 .section-header,
 .login-header,
@@ -44,13 +42,11 @@ body {
     color: #cfcfcf;
 }
 
-/* --- MAIN MENU --- */
 .main-menu {
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 15px 20px;
-    /* ✅ symetryczny padding */
     background: rgba(10, 1, 24, 0.95);
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     box-shadow: 0 0 8px rgba(107, 170, 221, 0.25);
@@ -130,7 +126,6 @@ body {
     box-shadow: 0 0 12px rgba(107, 170, 221, 0.6);
 }
 
-/* --- FORMULARZ I WYŚRODKOWANIE --- */
 .user-details-container {
     display: flex;
     justify-content: center;
@@ -143,7 +138,6 @@ body {
     max-width: 420px;
     background: rgba(10, 1, 24, 0.85);
     padding: 28px 22px;
-    /* ✅ symetrycznie */
     border-radius: 12px;
     box-shadow: 0 0 12px rgba(107, 170, 221, 0.25);
     display: flex;
@@ -159,7 +153,6 @@ body {
     width: 100%;
 }
 
-/* --- INPUT FIELDS --- */
 .form-field {
     width: 100%;
     margin-bottom: 16px;
@@ -180,7 +173,6 @@ body {
     color: #bbb;
 }
 
-/* --- REMEMBER & FORGOT --- */
 .remember-forgot-wrapper {
     display: flex;
     justify-content: space-between;
@@ -205,7 +197,6 @@ body {
     text-decoration: underline;
 }
 
-/* --- BUTTONS --- */
 .btn-primary,
 .btn-logout,
 .btn-login {
@@ -262,7 +253,6 @@ body {
     transform: scale(1.05);
 }
 
-/* --- FOOTER LINK --- */
 .login-footer {
     margin-top: 20px;
     text-align: center;
@@ -277,7 +267,6 @@ body {
     text-decoration: underline;
 }
 
-/* --- RESPONSIVE --- */
 @media (max-width: 768px) {
     .user-details-card {
         padding: 22px;
@@ -296,7 +285,6 @@ body {
     }
 }
 
-/* --- MOBILE OPTIMIZATION --- */
 @media (max-width: 480px) {
 
     html,
@@ -313,7 +301,6 @@ body {
         align-items: center;
         gap: 6px;
         padding: 10px 18px;
-        /* ✅ symetryczny padding */
         margin: 0;
         width: 100%;
         box-sizing: border-box;
@@ -367,13 +354,11 @@ body {
 
     .user-details-card {
         padding: 22px 18px;
-        /* ✅ równo */
         margin: 0 auto;
         width: 100%;
         max-width: 420px;
     }
 
-    /* ✅ odstęp między Priority-Pack a formularzem */
     .plan-cards {
         margin-bottom: 40px;
     }

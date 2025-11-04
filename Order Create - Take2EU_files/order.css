@@ -1,5 +1,4 @@
-﻿/* === PRICING SECTION === */
-.pricing-section {
+﻿.pricing-section {
     background: radial-gradient(circle at top left, #2B0B55, #0A0118);
     padding: 100px 20px;
     text-align: center;
@@ -134,7 +133,6 @@
     box-shadow: 0 0 6px rgba(107, 170, 221, 0.5);
 }
 
-/* === ORDER / LOGIN SECTION === */
 .order-container {
     max-width: 100%;
     width: 360px;
@@ -182,7 +180,6 @@
     font-weight: 700;
     font-size: 1.05rem;
     flex-wrap: nowrap;
-    /* Total + kwota + $ w jednej linii */
 }
 
 .summary-section #total-amount {
@@ -240,9 +237,7 @@
     outline-offset: 2px;
 }
 
-/* === RESPONSYWNOŚĆ === */
 
-/* Tablety (768px - 1024px) */
 @media (max-width: 1024px) {
     .plan-cards {
         grid-template-columns: 1fr;
@@ -266,7 +261,6 @@
     }
 }
 
-/* Telefony (480px - 767px) */
 @media (max-width: 767px) {
     .plan-cards {
         grid-template-columns: 1fr;
@@ -294,7 +288,6 @@
     }
 }
 
-/* Małe telefony (<480px) */
 @media (max-width: 480px) {
     .plan-cards {
         padding: 0 10px;

@@ -1,5 +1,4 @@
-﻿/* --- GLOBAL STYLES --- */
-html,
+﻿html,
 body {
     margin: 0;
     padding: 0;
@@ -36,7 +35,6 @@ body {
     color: #cfcfcf;
 }
 
-/* --- MAIN MENU --- */
 .main-menu {
     display: flex;
     align-items: center;
@@ -83,7 +81,6 @@ body {
     flex-shrink: 0;
 }
 
-/* --- BUTTONS --- */
 .btn-primary,
 .btn-login,
 .btn-logout,
@@ -144,7 +141,6 @@ body {
     outline: none;
 }
 
-/* --- FORMS --- */
 .form-row {
     display: flex;
     gap: 18px;
@@ -223,7 +219,6 @@ body {
     min-height: 0;
 }
 
-/* AUTOCOMPLETE */
 .autocomplete-dropdown {
     position: absolute;
     top: 100%;
@@ -260,7 +255,6 @@ body {
     color: #fff;
 }
 
-/* PHONE FIELDS */
 .phone-fields-wrap {
     display: flex;
     gap: 8px;
@@ -334,7 +328,6 @@ body {
     box-shadow: 0 0 8px rgba(58, 120, 240, 0.09);
 }
 
-/* FILE UPLOAD */
 .custom-file-upload {
     display: flex;
     align-items: center;
@@ -416,7 +409,6 @@ body {
     min-width: 0;
 }
 
-/* --- RESPONSIVE STYLES --- */
 @media (max-width: 1024px) {
     .form-row {
         flex-direction: column;

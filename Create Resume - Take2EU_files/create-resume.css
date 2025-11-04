@@ -1,8 +1,4 @@
-﻿/* ===========================
-   CREATE RESUME - MAIN CONTAINER
-=========================== */
-
-.resume-container {
+﻿.resume-container {
     width: 100%;
     max-width: 700px;
     margin: 40px auto 60px auto;
@@ -16,7 +12,6 @@
     box-shadow: 0 0 25px rgba(107, 170, 221, 0.3);
 }
 
-/* Mobile - symetryczne marginesy i padding */
 @media (max-width: 600px) {
     .resume-container {
         margin: 24px auto 40px auto;
@@ -26,9 +21,6 @@
     }
 }
 
-/* ===========================
-   RESUME CARD / SECTIONS
-=========================== */
 
 .resume-card {
     width: 100%;
@@ -65,9 +57,6 @@
     text-align: center;
 }
 
-/* ===========================
-   FORM GRID
-=========================== */
 
 .form-row {
     display: grid;
@@ -180,9 +169,6 @@ select.input-field option {
     background: #fff;
 }
 
-/* ===========================
-   EXPERIENCE BUTTONS
-=========================== */
 
 .exp-actions {
     display: flex;
@@ -247,9 +233,6 @@ select.input-field option {
     width: 98%;
 }
 
-/* ===========================
-   CHECKBOXES
-=========================== */
 
 .native-wrap {
     margin-top: 13px;
@@ -296,9 +279,6 @@ select.input-field option {
     font-size: 0.75em;
 }
 
-/* ===========================
-   LANGUAGE BUTTONS
-=========================== */
 
 .lang-actions {
     display: flex;
@@ -354,10 +334,6 @@ select.input-field option {
     margin: 12px 0;
     width: 98%;
 }
-
-/* ===========================
-   SUBMIT BUTTON - CENTERED
-=========================== */
 
 .resume-container button[type="submit"],
 .resume-container input[type="submit"] {
@@ -415,7 +391,6 @@ select.input-field option {
     color: #fff;
 }
 
-/* Mobile – pola jedno pod drugim */
 @media (max-width: 600px) {
     .form-row.passport-row {
         flex-direction: column;

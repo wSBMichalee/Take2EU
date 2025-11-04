@@ -73,20 +73,17 @@
     text-decoration: underline;
     font-size: 0.95rem;
     white-space: nowrap;
-    /* link nie łamie się na kilka linii */
 }
 
-/* === LABELKI POLA === */
 .user-details-card label {
     display: block;
     font-size: 14px;
     margin-bottom: 6px;
     color: #6BAADD;
-    /* niebieski akcent */
     font-weight: 500;
 }
 
-/* === POLA FORMULARZA === */
+
 .form-row {
     display: flex;
     gap: 16px;
@@ -116,13 +113,10 @@
     outline: none;
 }
 
-/* placeholder inputów */
 .input-field::placeholder {
     color: #999999;
-    /* jasny szary */
 }
 
-/* === ALERTY === */
 .success-alert,
 .error-alert {
     max-width: 330px;
@@ -158,12 +152,10 @@
     margin-right: 4px;
 }
 
-/* === NOTATKA POD EMAILEM === */
 .email-note {
     display: block;
     font-size: 0.9em;
     color: #cfcfcf;
-    /* delikatny jasny tekst */
     margin-top: 5px;
     margin-bottom: 10px;
     font-style: italic;
@@ -173,19 +165,15 @@
 
 .content-wrapper {
     padding-top: 80px;
-    /* odstęp od headera */
 }
 
 .login-footer {
     text-align: center;
-    /* wyśrodkowanie tekstu i linku */
     margin-top: 20px;
-    /* odstęp od formularza */
 }
 
 .login-footer p {
     margin: 0;
-    /* usuwa domyślny margines p */
     font-size: 0.95rem;
     color: #cfcfcf;
 }
@@ -194,10 +182,8 @@
     color: #6BAADD;
     text-decoration: underline;
     margin-left: 5px;
-    /* lekki odstęp między tekstem a linkiem */
 }
 
-/* === RESPONSYWNOŚĆ === */
 @media (max-width: 700px) {
     .user-details-container {
         max-width: 95vw;
@@ -213,7 +199,6 @@
     }
 }
 
-/* Mobilne ekrany dla wrappera Remember+Forgot */
 @media (max-width: 480px) {
     .remember-forgot-wrapper {
         flex-direction: column;
