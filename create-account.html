@@ -3,6 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Create Account - Take2EU</title>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
@@ -12,12 +13,21 @@
 <body>
 
     <div id="header-placeholder"></div>
+
     <script>
-        fetch("header.html")
+        fetch("hamburger.html")
             .then(res => res.text())
             .then(data => {
-                document.getElementById("header-placeholder").innerHTML = data;
-            });
+                document.getElementById("header-placeholder").innerHTML = data
+                const hamburger = document.getElementById("hamburger");
+                const dropdown = document.getElementById("dropdown-menu");
+
+                if (hamburger && dropdown) {
+                    hamburger.addEventListener("click", () => {
+                        dropdown.classList.toggle("show");
+                    });
+                }
+            })
     </script>
 
 

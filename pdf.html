@@ -10,13 +10,23 @@
 
 <body>
 
+    <div id="header-placeholder"></div>
 
-    <header class="main-header">
-        <div class="header-container">
-            <h2 style="color: #fff; font-weight: 700; margin: 0;">Take2EU</h2>
-            <a href="#" class="button">Download as PDF</a>
-        </div>
-    </header>
+    <script>
+        fetch("hamburger.html")
+            .then(res => res.text())
+            .then(data => {
+                document.getElementById("header-placeholder").innerHTML = data;
+                const hamburger = document.getElementById("hamburger");
+                const dropdown = document.getElementById("dropdown-menu");
+
+                if (hamburger && dropdown) {
+                    hamburger.addEventListener("click", () => {
+                        dropdown.classList.toggle("show");
+                    });
+                }
+            })
+    </script>
 
 
     <section class="resume-section">
