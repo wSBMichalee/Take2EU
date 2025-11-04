@@ -397,3 +397,26 @@ select.input-field option {
         gap: 12px;
     }
 }
+
+@media (max-width: 900px) {
+
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+
+    .phone-fields-wrap {
+        display: flex;
+        flex-direction: row;
+        gap: 8px;
+    }
+
+    .phone-fields-wrap .form-field {
+        flex: 1;
+    }
+
+    .phone-fields-wrap select.input-field,
+    .phone-fields-wrap input.input-field {
+        height: 42px;
+        line-height: 42px;
+    }
+}
