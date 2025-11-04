@@ -1,17 +1,10 @@
-﻿body {
-    font-family: 'Segoe UI', Arial, sans-serif;
-    background: #f9f9f9;
-    margin: 0;
-    padding: 30px 0;
-}
-
-.cv-container {
+﻿.cv-container {
     background: #fff;
     width: 780px;
     max-width: 98vw;
     margin: 0 auto;
     padding: 36px 8vw 40px 8vw;
-    box-shadow: 0 0 40px #bbb4;
+    box-shadow: 1px solid #6BAADD;
 }
 
 .center {
@@ -24,21 +17,21 @@
     margin-bottom: 24px;
 }
 
-    .cv-header h1 {
-        margin: 0 0 4px 0;
-        letter-spacing: 2px;
-        font-size: 2.1rem;
-        word-break: break-word;
-    }
+.cv-header h1 {
+    margin: 0 0 4px 0;
+    letter-spacing: 2px;
+    font-size: 2.1rem;
+    word-break: break-word;
+}
 
-    .cv-header h2 {
-        margin: 0;
-        font-size: 1.3rem;
-        color: #666;
-        font-weight: normal;
-        letter-spacing: 1px;
-        word-break: break-word;
-    }
+.cv-header h2 {
+    margin: 0;
+    font-size: 1.3rem;
+    color: #666;
+    font-weight: normal;
+    letter-spacing: 1px;
+    word-break: break-word;
+}
 
 .cv-info-list {
     padding: 0;
@@ -46,11 +39,11 @@
     list-style: none;
 }
 
-    .cv-info-list li {
-        margin-bottom: 6px;
-        font-size: 1rem;
-        word-break: break-word;
-    }
+.cv-info-list li {
+    margin-bottom: 6px;
+    font-size: 1rem;
+    word-break: break-word;
+}
 
 .cv-section {
     margin: 24px 0 16px 0;
@@ -86,6 +79,7 @@
     margin-bottom: 7px;
     word-break: break-word;
 }
+
 /* SLA INFO + BAR */
 .sla-info {
     background: #e3f0ff;
@@ -102,25 +96,26 @@
     margin-bottom: 32px;
 }
 
-    .sla-bar-wrap > div {
-        word-break: break-word;
-    }
+.sla-bar-wrap>div {
+    word-break: break-word;
+}
+
 /* Thank you header block */
 .cv-thank-header {
     margin-bottom: 22px;
 }
 
-    .cv-thank-header > div:first-child {
-        font-size: 1.21rem;
-        font-weight: 600;
-        color: #194a7c;
-    }
+.cv-thank-header>div:first-child {
+    font-size: 1.21rem;
+    font-weight: 600;
+    color: #274E89;
+}
 
-    .cv-thank-header > div:last-child {
-        margin-top: 6px;
-        font-size: 1.06rem;
-        color: #406398;
-    }
+.cv-thank-header>div:last-child {
+    margin-top: 6px;
+    font-size: 1.06rem;
+    color: #274E89;
+}
 
 .cv-download-btn-row {
     text-align: right;
@@ -129,7 +124,7 @@
 
 .cv-download-btn {
     color: #fff;
-    background: #4285f4;
+    background: #274E89;
     border: none;
     border-radius: 5px;
     font-size: 1.01rem;
@@ -140,9 +135,9 @@
     transition: background 0.15s;
 }
 
-    .cv-download-btn:hover {
-        background: #2563b7;
-    }
+.cv-download-btn:hover {
+    background: #2563b7;
+}
 
 @media print {
     .cv-container {
@@ -173,7 +168,9 @@
         font-size: 1rem;
     }
 
-    .cv-info-list li, .cv-job, .cv-lang {
+    .cv-info-list li,
+    .cv-job,
+    .cv-lang {
         font-size: 0.98rem;
     }
 }
@@ -193,11 +190,16 @@
         font-size: 1.1rem;
     }
 
-    .cv-label, .cv-section-title, .cv-header h2 {
+    .cv-label,
+    .cv-section-title,
+    .cv-header h2 {
         font-size: 0.93rem;
     }
 
-    .cv-info-list li, .cv-job, .cv-lang, .cv-certificate {
+    .cv-info-list li,
+    .cv-job,
+    .cv-lang,
+    .cv-certificate {
         font-size: 0.93rem;
     }
 

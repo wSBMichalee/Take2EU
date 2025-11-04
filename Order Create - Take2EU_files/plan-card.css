@@ -1,160 +1,208 @@
-﻿/* === Zmienne kolorów (light) === */
-:root {
-    --pc-brand: #123456;
-    --pc-accent: #2563eb;
-    --pc-bg: #ffffff;
-    --pc-border: #e5e7eb;
-    --pc-text: #111827;
-    --pc-muted: #6b7280;
-    --pc-hl-bg: #123456; /* tło highlight */
-    --pc-hl-fg: #ffffff; /* tekst highlight */
-
-    --pc-btn-bg: #2563eb;
-    --pc-btn-fg: #ffffff;
-    --pc-btn-bg-hover: #1d4ed8;
-    --pc-btn-ring: rgba(37, 99, 235, .45);
+﻿.pricing-section {
+    background: radial-gradient(circle at top left, #2B0B55, #0A0118);
+    padding: 100px 20px;
+    text-align: center;
+    color: #fff;
 }
 
-/* === Ciemny motyw (globalna klasa .dark) === */
-.dark :root,
-.dark {
-    --pc-bg: #0b1220;
-    --pc-border: #23314f;
-    --pc-text: #e5e7eb;
-    --pc-muted: #9aa4b2;
-    --pc-hl-bg: #1b2a4a;
-    --pc-hl-fg: #ffffff;
-    --pc-btn-bg: #2563eb;
-    --pc-btn-fg: #ffffff;
-    --pc-btn-bg-hover: #1d4ed8;
-    --pc-btn-ring: rgba(37, 99, 235, .55);
-}
-
-/* === Karta planu (layout bazowy) === */
-.plan-card {
-    display: flex; /* przewidywalny układ i centrowanie przez flex */
-    flex-direction: column; /* nagłówek, cena, przycisk w kolumnie */
-    gap: 12px;
-    background: var(--pc-bg);
-    color: var(--pc-text);
-    border: 1px solid var(--pc-border);
-    border-radius: 16px;
-    padding: 24px 40px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
-    width: 90%;
-    max-width: 720px;
-    margin: 40px auto;
-    box-sizing: border-box;
-}
-
-    /* Wariant wyróżniony */
-    .plan-card.highlight {
-        background: var(--pc-hl-bg);
-        color: var(--pc-hl-fg);
-        border-color: transparent;
-        box-shadow: 0 6px 18px rgba(18, 52, 86, .25);
-    }
-
-    /* Elementy treści */
-    .plan-card .plan-header {
-        display: inline-block;
-        padding: 4px 10px;
-        background: var(--pc-brand);
-        color: #fff;
-        border-radius: 6px;
-        font-size: .75em;
-        align-self: center; /* wizualne wyśrodkowanie belki */
-    }
-
-    .plan-card .price {
-        font-size: 1.7em;
-        font-weight: 700;
-        margin: 6px 0 8px;
-        text-align: center; /* cena pośrodku */
-    }
-
-    .plan-card .text-muted {
-        font-size: .85em;
-        color: var(--pc-muted);
-        text-align: center;
-        margin-bottom: 8px;
-    }
-
-    /* === Przycisk akcji === */
-    /* Używa się klasy .get-now nadanej przez TagHelper (wraz z .btn-primary, ale tu dopracowujemy układ) */
-    .plan-card .get-now {
-        display: inline-flex; /* centrowanie etykiety wewnątrz */
-        align-items: center; /* pionowe wyśrodkowanie */
-        justify-content: center; /* poziome wyśrodkowanie */
-        padding: 12px 24px;
-        border-radius: 12px;
-        border: 0;
-        background: var(--pc-btn-bg);
-        color: var(--pc-btn-fg);
-        font-weight: 700;
-        cursor: pointer;
-        text-decoration: none;
-        transition: background-color .15s ease-in-out, transform .1s ease;
-        margin-inline: auto; /* środek względem karty */
-        min-width: 200px; /* stabilna szerokość wizualna */
-    }
-
-        .plan-card .get-now:hover {
-            background: var(--pc-btn-bg-hover);
-        }
-
-        .plan-card .get-now:active {
-            transform: translateY(1px);
-        }
-
-        .plan-card .get-now:focus-visible {
-            outline: 3px solid var(--pc-btn-ring);
-            outline-offset: 2px;
-        }
-
-    /* Kontrast w highlight: jasny przycisk na ciemnym tle */
-    .plan-card.highlight .get-now {
-        background: #ffffff;
-        color: var(--pc-brand);
-    }
-
-        .plan-card.highlight .get-now:hover {
-            background: #f2f5ff;
-        }
-
-/* === Kontener zbiorczy (gdy karty są w wierszu) === */
 .plan-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    justify-content: center;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.plan-card {
+    background: linear-gradient(180deg, rgba(60, 34, 91, 0.8), rgba(10, 1, 24, 0.9));
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 35px 25px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    position: relative;
+    text-align: center;
+    color: #fff;
+    transition: all 0.3s ease;
+    max-width: 360px;
+    margin: 0 auto;
+}
+
+.plan-card:hover {
+    border-color: #6BAADD;
+    box-shadow: 0 0 25px rgba(107, 170, 221, 0.4);
+    transform: translateY(-6px);
+}
+
+/* Plan header */
+.plan-card .plan-header {
+    display: inline-block;
+    padding: 5px 12px;
+    background: linear-gradient(140deg, #6BAADD 0%, #274E89 100%);
+    color: #fff;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    box-shadow: 0 0 6px rgba(107, 170, 221, 0.5);
+}
+
+.plan-card .price {
+    font-size: 32px;
+    margin: 15px 0;
+    font-weight: 700;
+}
+
+.plan-card p {
+    color: #cfcfcf;
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+.plan-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+    text-align: left;
+}
+
+.plan-card ul li {
+    margin-bottom: 8px;
     display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 15px;
+}
+
+.plan-card ul li::before {
+    content: "✔ ";
+    color: #6BAADD;
+}
+
+.plan-card ul li.not-included::before {
+    content: "❌ ";
+    color: #FF6B6B;
+}
+
+/* Kontener dla przycisków, aby były w jednej linii */
+.plan-card .button-container {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
     flex-wrap: wrap;
-    gap: 16px;
-    justify-content: center; /* wyśrodkowanie zestawu kart */
+    margin-top: 15px;
 }
 
-/* === Responsywność (mobile) === */
+/* Przyciski */
+.plan-card .get-now {
+    display: inline-block;
+    padding: 12px 28px;
+    border-radius: 12px;
+    /* spójne zaokrąglenie */
+    background: linear-gradient(140deg, #6BAADD 0%, #274E89 100%);
+    color: #fff;
+    font-weight: 700;
+    font-size: 16px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(107, 170, 221, 0.3);
+    min-width: 140px;
+    text-align: center;
+}
+
+.plan-card .get-now:hover {
+    background: linear-gradient(180deg, rgba(60, 34, 91, 0.8), rgba(10, 1, 24, 0.9));
+    box-shadow: 0 0 20px rgba(107, 170, 221, 0.5);
+    transform: translateY(-2px);
+}
+
+/* Wyróżniony przycisk highlight */
+.plan-card.highlight .get-now {
+    background: #ffffff;
+    color: #274E89;
+    border-radius: 12px;
+    /* to samo zaokrąglenie */
+}
+
+.plan-card.highlight .get-now:hover {
+    background: #f2f5ff;
+}
+
+/* Badge dla highlight */
+.plan-card.highlight .badge {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(140deg, #6BAADD 0%, #274E89 100%);
+    color: white;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 5px 12px;
+    border-radius: 20px;
+    letter-spacing: 1px;
+    box-shadow: 0 0 6px rgba(107, 170, 221, 0.5);
+}
+
+/* --- RESPONSYWNOŚĆ --- */
+
+/* Tablety (768px - 1024px) */
+@media (max-width: 1024px) {
+    .plan-cards {
+        grid-template-columns: repeat(2, minmax(260px, 1fr));
+        gap: 20px;
+        padding: 0 20px;
+    }
+
+    .plan-card {
+        padding: 28px 20px;
+        max-width: 320px;
+    }
+
+    .plan-card .get-now {
+        padding: 14px 26px;
+        font-size: 17px;
+        min-width: 140px;
+    }
+}
+
+/* Telefony (480px - 767px) */
+@media (max-width: 767px) {
+    .plan-cards {
+        grid-template-columns: 1fr;
+        gap: 15px;
+        padding: 0 15px;
+    }
+
+    .plan-card {
+        padding: 20px 15px;
+        max-width: 280px;
+    }
+
+    .plan-card .get-now {
+        padding: 16px 24px;
+        font-size: 16px;
+        min-width: 130px;
+    }
+}
+
+/* Małe telefony (<480px) */
 @media (max-width: 480px) {
-    .plan-card {
-        padding: 20px 16px;
-        width: 95%;
-        margin: 20px auto;
-        align-items: center; /* środek dla całej zawartości */
-        text-align: center;
-        font-size: 1.6em; /* spójne skalowanie typografii kart */
+    .plan-cards {
+        padding: 0 10px;
     }
 
-        .plan-card .get-now {
-            width: 100%; /* pełna szerokość na telefonie */
-            max-width: 320px; /* ale z rozsądnym limitem */
-        }
-}
-
-/* Jeszcze węższe urządzenia */
-@media (max-width: 350px) {
     .plan-card {
-        padding: 16px 12px;
-        font-size: 1.5em;
+        max-width: 260px;
+        padding: 18px 12px;
     }
 
-        .plan-card .get-now {
-            min-width: 0;
-        }
+    .plan-card .get-now {
+        padding: 16px 20px;
+        font-size: 15px;
+        min-width: 120px;
+    }
 }

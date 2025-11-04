@@ -1,20 +1,34 @@
-﻿.resume-container {
+﻿/* ===========================
+   CREATE RESUME - MAIN CONTAINER
+=========================== */
+
+.resume-container {
+    width: 100%;
     max-width: 700px;
-    margin: 35px auto;
-    padding-left: 16px;
-    padding-right: 16px;
+    margin: 40px auto 60px auto;
+    padding: 24px 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
     box-sizing: border-box;
+    background: linear-gradient(180deg, rgba(60, 34, 91, 0.8), rgba(10, 1, 24, 0.9));
+    border-radius: 20px;
+    box-shadow: 0 0 25px rgba(107, 170, 221, 0.3);
 }
 
+/* Mobile - symetryczne marginesy i padding */
 @media (max-width: 600px) {
     .resume-container {
-        padding-left: 8px;
-        padding-right: 8px;
+        margin: 24px auto 40px auto;
+        padding: 16px 12px;
+        width: calc(100% - 24px);
+        border-radius: 16px;
     }
 }
+
+/* ===========================
+   RESUME CARD / SECTIONS
+=========================== */
 
 .resume-card {
     width: 100%;
@@ -45,35 +59,39 @@
 
 .section-title {
     margin-bottom: 10px;
-    color: #123456;
+    color: #6BAADD;
     font-size: 1.12rem;
     font-weight: 700;
     text-align: center;
 }
 
-/* GRID FORMULARZA */
+/* ===========================
+   FORM GRID
+=========================== */
+
 .form-row {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 2px 10px;
+    gap: 10px;
     margin-bottom: 10px;
+    align-items: start;
 }
 
-    .form-row:has(> .form-field:only-child),
-    .form-row:has(> div.form-field:only-child) {
-        grid-template-columns: 1fr;
-    }
+.form-row:has(> .form-field:only-child),
+.form-row:has(> div.form-field:only-child) {
+    grid-template-columns: 1fr;
+}
 
-    .form-row.form-row--wide {
-        grid-template-columns: 1fr;
-    }
+.form-row.form-row--wide {
+    grid-template-columns: 1fr;
+}
 
-    .form-row > .form-field:only-child,
-    .form-row > div.form-field:only-child {
-        width: 100%;
-        max-width: 100%;
-        grid-column: 1 / -1;
-    }
+.form-row>.form-field:only-child,
+.form-row>div.form-field:only-child {
+    width: 100%;
+    max-width: 100%;
+    grid-column: 1 / -1;
+}
 
 .form-group {
     text-align: left;
@@ -86,41 +104,54 @@
     box-sizing: border-box;
     overflow: visible;
     min-width: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
 }
 
-.input-field {
+.form-label {
+    margin-bottom: 4px;
+    line-height: 1.1;
+    display: block;
+}
+
+.input-field,
+select.input-field {
     width: 100%;
     box-sizing: border-box;
     margin-bottom: 0;
     padding: 10px 12px;
-    border: 1px solid #d1d5db;
+    border: 1px solid #6BAADD;
     border-radius: 8px;
     outline: none;
     font-size: 1rem;
-    transition: border-color .2s;
-    height: 40px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    height: 42px;
+    background: transparent;
+    color: #fff;
+    vertical-align: middle;
 }
 
-    .input-field:focus {
-        border-color: #3a78f0;
-        box-shadow: 0 0 8px rgba(58,120,240,0.35);
-    }
+.input-field:focus {
+    border-color: #3a78f0;
+    box-shadow: 0 0 8px rgba(58, 120, 240, 0.35);
+}
 
-    .input-field.input-validation-error,
-    .input-field.input-validation-error:focus {
-        border-color: #ef4444;
-        border-width: 2px;
-        box-shadow: none;
-        outline: none;
-    }
+.input-field.input-validation-error,
+.input-field.input-validation-error:focus {
+    border-color: #ef4444;
+    border-width: 2px;
+    box-shadow: none;
+    outline: none;
+}
 
-    .input-field.input-validation-success,
-    .input-field.input-validation-success:focus {
-        border-color: #22c55e;
-        border-width: 2px;
-        box-shadow: none;
-        outline: none;
-    }
+.input-field.input-validation-success,
+.input-field.input-validation-success:focus {
+    border-color: 1px solid #6BAADD;
+    border-width: 2px;
+    box-shadow: none;
+    outline: none;
+}
 
 .tooltip {
     position: relative;
@@ -134,7 +165,7 @@
     display: block;
     margin-top: 6px;
     margin-bottom: 10px;
-    font-size: .875rem;
+    font-size: 0.875rem;
     color: #ef4444;
     line-height: 1.2;
 }
@@ -144,37 +175,15 @@
     min-height: 0;
 }
 
-
-select.input-field {
-    padding-top: 6px;
-    padding-bottom: 2px;
+select.input-field option {
+    color: #000;
+    background: #fff;
 }
 
-@media (max-width: 600px) {
-    .resume-container,
-    .section,
-    .section.section-personal,
-    .section-work,
-    .section-experience,
-    .section-education,
-    .documents-section,
-    .consents-section {
-        padding: 5px 0;
-    }
+/* ===========================
+   EXPERIENCE BUTTONS
+=========================== */
 
-    .resume-container {
-        padding-left: 8px;
-        padding-right: 8px;
-    }
-
-    .form-row {
-        grid-template-columns: 1fr;
-        gap: 0;
-        margin-bottom: 7px;
-    }
-}
-
-/* --- EXPERIENCE BUTTONS --- */
 .exp-actions {
     display: flex;
     gap: 16px;
@@ -182,88 +191,65 @@ select.input-field {
     margin-bottom: 16px;
 }
 
-    .exp-actions button {
-        flex: 1 1 0;
-        display: flex;
-        align-items: center;
-        justify-content: flex-start;
-        gap: 8px;
-        padding: 0 16px;
-        min-width: 170px;
-        min-height: 44px;
-        font-size: 16px;
-        font-weight: 500;
-        border-radius: 20px;
-        border: 1px solid #143970;
-        outline: none;
-        position: relative;
-        cursor: pointer;
-        background: transparent;
-        color: #143970;
-        transition: background .15s, color .15s, border .15s;
-        text-align: left;
-    }
+.exp-actions button {
+    flex: 1 1 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 8px;
+    padding: 0 16px;
+    min-width: 170px;
+    min-height: 44px;
+    font-size: 16px;
+    font-weight: 500;
+    border-radius: 20px;
+    border: 1px solid #6BAADD;
+    outline: none;
+    cursor: pointer;
+    background: transparent;
+    color: #6BAADD;
+    transition: background 0.15s, color 0.15s, border 0.15s;
+    text-align: left;
+}
 
-    .exp-actions .add-exp-btn {
-        background: #143970;
-        border: 1px solid #143970;
-        color: #fff;
-    }
+.exp-actions .add-exp-btn {
+    background: #6BAADD;
+    border: 1px solid #6BAADD;
+    color: #fff;
+}
 
-        .exp-actions .add-exp-btn svg {
-            stroke: #fff;
-            fill: none;
-            stroke-width: 2px;
-            width: 22px;
-            height: 22px;
-            margin-right: 8px;
-            flex-shrink: 0;
-        }
+.exp-actions .add-exp-btn svg {
+    stroke: #fff;
+    fill: none;
+    stroke-width: 2px;
+    width: 22px;
+    height: 22px;
+    margin-right: 8px;
+    flex-shrink: 0;
+}
 
-        .exp-actions .add-exp-btn:disabled {
-            background: #e8eaee;
-            border: 1px solid #e8eaee;
-            color: #b7bbc7;
-            cursor: not-allowed;
-        }
+.exp-actions .add-exp-btn:disabled {
+    background: #555;
+    border: 1px solid #555;
+    color: #bbb;
+}
 
-            .exp-actions .add-exp-btn:disabled svg {
-                stroke: #b7bbc7;
-            }
-
-    .exp-actions .remove-exp-btn {
-        background: #fff;
-        border: 1px solid #143970;
-        color: #143970;
-    }
-
-        .exp-actions .remove-exp-btn svg {
-            stroke: #143970;
-            fill: none;
-            stroke-width: 2px;
-            width: 22px;
-            height: 22px;
-            margin-right: 8px;
-            flex-shrink: 0;
-        }
-
-        .exp-actions .remove-exp-btn:disabled {
-            background: #f6f8fa;
-            border: 1px solid #e8eaee;
-            color: #cfd3db;
-            cursor: not-allowed;
-        }
-
-            .exp-actions .remove-exp-btn:disabled svg {
-                stroke: #cfd3db;
-            }
+.exp-actions .remove-exp-btn {
+    background: #222;
+    border: 1px solid #6BAADD;
+    color: #6BAADD;
+}
 
 .exp-divider {
     border: none;
-    border-top: 1px solid #d5d8de;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
     margin: 12px 0;
     width: 98%;
 }
+
+/* ===========================
+   CHECKBOXES
+=========================== */
 
 .native-wrap {
     margin-top: 13px;
@@ -279,56 +265,40 @@ select.input-field {
     position: relative;
 }
 
-    .native-checkbox input[type="checkbox"] {
-        position: absolute;
-        left: -9999px;
-        opacity: 0;
-        width: 1px;
-        height: 1px;
-        margin: 0;
-        padding: 0;
-        border: none;
-        clip: rect(0, 0, 0, 0);
-        overflow: hidden;
-        z-index: -1;
-    }
+.native-checkbox input[type="checkbox"] {
+    position: absolute;
+    left: -9999px;
+    opacity: 0;
+}
 
 .native-checkmark {
     width: 16px;
     height: 16px;
-    background-color: #eee;
-    border: 1.5px solid #bbb;
+    background-color: #222;
+    border: 1.5px solid #6BAADD;
     border-radius: 3.5px;
-    margin-right: 7px;
     display: inline-block;
     position: relative;
     transition: all 0.2s ease;
-    line-height: 16px;
-    text-align: center;
-    font-size: 0.96em;
-    color: #22c55e;
-    font-weight: 400;
 }
 
-.native-checkbox input[type="checkbox"]:checked + .native-checkmark {
-    background-color: #123456;
-    border-color: #123456;
-    color: white;
+.native-checkbox input[type="checkbox"]:checked+.native-checkmark {
+    background-color: #6BAADD;
+    border-color: #6BAADD;
 }
 
-    .native-checkbox input[type="checkbox"]:checked + .native-checkmark::after {
-        content: "✓";
-        color: #fff;
-        position: absolute;
-        left: 3px;
-        top: 0px;
-        font-size: 0.75em;
-        font-weight: 400;
-        line-height: 1;
-        pointer-events: none;
-        letter-spacing: -0.11em;
-        opacity: 0.93;
-    }
+.native-checkbox input[type="checkbox"]:checked+.native-checkmark::after {
+    content: "✓";
+    color: #fff;
+    position: absolute;
+    left: 3px;
+    top: 0px;
+    font-size: 0.75em;
+}
+
+/* ===========================
+   LANGUAGE BUTTONS
+=========================== */
 
 .lang-actions {
     display: flex;
@@ -337,85 +307,118 @@ select.input-field {
     margin-bottom: 16px;
 }
 
-    .lang-actions button {
-        flex: 1 1 0;
-        display: flex;
-        align-items: center;
-        justify-content: flex-start;
-        gap: 8px;
-        padding: 0 16px;
-        min-width: 170px;
-        min-height: 44px;
-        font-size: 16px;
-        font-weight: 500;
-        border-radius: 20px;
-        border: 1px solid #143970;
-        outline: none;
-        position: relative;
-        cursor: pointer;
-        background: transparent;
-        color: #143970;
-        transition: background .15s, color .15s, border .15s;
-        text-align: left;
-    }
+.lang-actions button {
+    flex: 1 1 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 8px;
+    padding: 0 16px;
+    min-width: 170px;
+    min-height: 44px;
+    font-size: 16px;
+    font-weight: 500;
+    border-radius: 20px;
+    border: 1px solid #6BAADD;
+    cursor: pointer;
+    background: transparent;
+    color: #6BAADD;
+    transition: background 0.15s, color 0.15s, border 0.15s;
+    text-align: left;
+}
 
-    .lang-actions .add-lang-btn {
-        background: #143970;
-        border: 1px solid #143970;
-        color: #fff;
-    }
+.lang-actions .add-lang-btn {
+    background: #6BAADD;
+    border: 1px solid #6BAADD;
+    color: #fff;
+}
 
-        .lang-actions .add-lang-btn svg {
-            stroke: #fff;
-            fill: none;
-            stroke-width: 2px;
-            width: 22px;
-            height: 22px;
-            margin-right: 8px;
-            flex-shrink: 0;
-        }
+.lang-actions .add-lang-btn svg {
+    stroke: #fff;
+    fill: none;
+    stroke-width: 2px;
+    width: 22px;
+    height: 22px;
+    margin-right: 8px;
+}
 
-        .lang-actions .add-lang-btn:disabled {
-            background: #e8eaee;
-            border: 1px solid #e8eaee;
-            color: #b7bbc7;
-            cursor: not-allowed;
-        }
-
-            .lang-actions .add-lang-btn:disabled svg {
-                stroke: #b7bbc7;
-            }
-
-    .lang-actions .remove-lang-btn {
-        background: #fff;
-        border: 1px solid #143970;
-        color: #143970;
-    }
-
-        .lang-actions .remove-lang-btn svg {
-            stroke: #143970;
-            fill: none;
-            stroke-width: 2px;
-            width: 22px;
-            height: 22px;
-            margin-right: 8px;
-            flex-shrink: 0;
-        }
-
-        .lang-actions .remove-lang-btn:disabled {
-            background: #f6f8fa;
-            border: 1px solid #e8eaee;
-            color: #cfd3db;
-            cursor: not-allowed;
-        }
-
-            .lang-actions .remove-lang-btn:disabled svg {
-                stroke: #cfd3db;
-            }
+.lang-actions .remove-lang-btn {
+    background: #222;
+    border: 1px solid #6BAADD;
+    color: #6BAADD;
+}
 
 .lang-divider {
     border: none;
-    border-top: 1px solid #d5d8de;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
     margin: 12px 0;
     width: 98%;
+}
+
+/* ===========================
+   SUBMIT BUTTON - CENTERED
+=========================== */
+
+.resume-container button[type="submit"],
+.resume-container input[type="submit"] {
+    display: block;
+    margin: 25px auto 0 auto !important;
+    padding: 14px 36px;
+    background: #6BAADD;
+    color: #fff;
+    border: none;
+    border-radius: 30px;
+    font-size: 1.05rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s ease;
+    text-align: center;
+}
+
+.resume-container button[type="submit"]:hover,
+.resume-container input[type="submit"]:hover {
+    transform: scale(1.05);
+    background: #599acc;
+}
+
+
+.form-row.passport-row {
+    display: flex !important;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 16px;
+    width: 100%;
+}
+
+.form-row.passport-row .form-field {
+    flex: 1 1 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.form-row.passport-row .form-label {
+    margin-bottom: 6px;
+    color: #fff;
+    font-weight: 500;
+}
+
+.form-row.passport-row .input-field,
+.form-row.passport-row select.input-field {
+    height: 42px;
+    line-height: 42px;
+    padding: 10px 12px;
+    box-sizing: border-box;
+    border: 1px solid #6BAADD;
+    border-radius: 8px;
+    background: transparent;
+    color: #fff;
+}
+
+/* Mobile – pola jedno pod drugim */
+@media (max-width: 600px) {
+    .form-row.passport-row {
+        flex-direction: column;
+        gap: 12px;
+    }
 }

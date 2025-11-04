@@ -1,60 +1,92 @@
-﻿.user-details-container {
+﻿.user-details-section {
+    background: radial-gradient(circle at top left, #2B0B55, #0A0118);
+    padding: 100px;
+    color: #ffffff;
+    text-align: center;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.user-details-container {
     max-width: 420px;
-    margin: 36px auto;
-    padding: 0 10px;
+    width: 100%;
+    margin: 0 auto;
+    color: #ffffff;
 }
 
 .user-details-card {
-    background: transparent;
-    border-radius: 0;
-    box-shadow: none;
-    padding: 0;
+    background: linear-gradient(180deg, rgba(60, 34, 91, 0.8), rgba(10, 1, 24, 0.9));
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    box-shadow: 0 0 25px rgba(107, 170, 221, 0.2);
+    padding: 40px 30px;
+    text-align: left;
 }
 
 .page-header {
-    margin-bottom: 16px;
+    margin-bottom: 24px;
     text-align: center;
 }
 
-.header-content .page-title, .page-title {
-    font-size: 1.36rem;
+.header-content .page-title,
+.page-title {
+    font-size: 26px;
     font-weight: 700;
-    color: #123456;
-    margin-bottom: 2px;
-    text-align: center;
+    color: #ffffff;
+    margin-bottom: 6px;
+    text-shadow: 0 0 8px rgba(107, 170, 221, 0.4);
 }
 
-.header-content .page-subtitle, .page-subtitle {
-    color: #5c8ed8;
-    font-size: 1.01rem;
+.header-content .page-subtitle,
+.page-subtitle {
+    color: #6BAADD;
+    font-size: 15px;
     margin-top: 0;
     text-align: center;
+    letter-spacing: 0.5px;
 }
+
 
 .section {
     margin-bottom: 30px;
 }
 
-.section-header {
-    margin-bottom: 14px;
+
+.remember-forgot-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 16px;
 }
 
-.section-title {
-    font-size: 1.12em;
-    font-weight: 600;
-    color: #123456;
-    margin-bottom: 2px;
-    text-align: left;
+.custom-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 6px;
 }
 
-.section-description {
-    color: #5d5d5d;
-    font-size: .98em;
-    margin-top: 0;
-    margin-bottom: 0;
+.forgot-link {
+    color: #6BAADD;
+    text-decoration: underline;
+    font-size: 0.95rem;
+    white-space: nowrap;
+    /* link nie łamie się na kilka linii */
 }
 
-/* --- Naprawa układu dwóch pól w jednym wierszu --- */
+/* === LABELKI POLA === */
+.user-details-card label {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 6px;
+    color: #6BAADD;
+    /* niebieski akcent */
+    font-weight: 500;
+}
+
+/* === POLA FORMULARZA === */
 .form-row {
     display: flex;
     gap: 16px;
@@ -62,75 +94,130 @@
     min-width: 0;
 }
 
-    .form-row > .form-group {
-        flex: 1 1 0%;
-        min-width: 0;
-    }
-
-    .form-row .input-field {
-        width: 100%;
-        min-width: 0;
-        max-width: 100%;
-        box-sizing: border-box;
-    }
-
-@media (max-width: 700px) {
-    .user-details-container {
-        max-width: 99vw;
-    }
-
-    .user-details-card {
-        padding: 0;
-    }
-
-    .form-row {
-        flex-direction: column;
-        gap: 0;
-    }
-
-        .form-row > .form-group {
-            flex: none;
-            min-width: unset;
-        }
+.form-row>.form-group {
+    flex: 1 1 0%;
+    min-width: 0;
 }
 
-.success-alert, .error-alert {
-    max-width: 330px;
-    margin: 14px auto 14px auto;
-    text-align: center;
+.input-field {
+    width: 100%;
+    background: transparent;
+    border: 1px solid #6BAADD;
     border-radius: 8px;
+    padding: 12px;
+    color: #ffffff;
+    font-size: 15px;
+    transition: box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.input-field:focus {
+    border-color: #6BAADD;
+    box-shadow: 0 0 10px rgba(107, 170, 221, 0.4);
+    outline: none;
+}
+
+/* placeholder inputów */
+.input-field::placeholder {
+    color: #999999;
+    /* jasny szary */
+}
+
+/* === ALERTY === */
+.success-alert,
+.error-alert {
+    max-width: 330px;
+    margin: 20px auto;
+    text-align: center;
+    border-radius: 10px;
     font-size: 1.04em;
-    padding: 10px 14px;
+    padding: 12px 16px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
 }
 
 .success-alert {
-    color: #1e7e34;
-    background: #e6fcf0;
-    border: 1.6px solid #059669;
-}
-
-.success-icon {
-    font-size: 1.1em;
-    margin-right: 4px;
+    color: #1EC85D;
+    background: rgba(30, 200, 93, 0.15);
+    border: 1.6px solid #1EC85D;
+    box-shadow: 0 0 10px rgba(30, 200, 93, 0.3);
 }
 
 .error-alert {
-    color: #b91c1c;
-    background: #fff7f5;
-    border: 1.6px solid #ef4444;
+    color: #E74C3C;
+    background: rgba(231, 76, 60, 0.15);
+    border: 1.6px solid #E74C3C;
+    box-shadow: 0 0 10px rgba(231, 76, 60, 0.3);
 }
 
+.success-icon,
 .error-icon {
     font-size: 1.1em;
     margin-right: 4px;
 }
 
+/* === NOTATKA POD EMAILEM === */
 .email-note {
     display: block;
-    font-size: .94em;
-    color: #7e8595;
-    margin-top: 3px;
+    font-size: 0.9em;
+    color: #cfcfcf;
+    /* delikatny jasny tekst */
+    margin-top: 5px;
     margin-bottom: 10px;
     font-style: italic;
-    letter-spacing: 0.01em;
+    letter-spacing: 0.02em;
+    opacity: 0.9;
+}
+
+.content-wrapper {
+    padding-top: 80px;
+    /* odstęp od headera */
+}
+
+.login-footer {
+    text-align: center;
+    /* wyśrodkowanie tekstu i linku */
+    margin-top: 20px;
+    /* odstęp od formularza */
+}
+
+.login-footer p {
+    margin: 0;
+    /* usuwa domyślny margines p */
+    font-size: 0.95rem;
+    color: #cfcfcf;
+}
+
+.register-link {
+    color: #6BAADD;
+    text-decoration: underline;
+    margin-left: 5px;
+    /* lekki odstęp między tekstem a linkiem */
+}
+
+/* === RESPONSYWNOŚĆ === */
+@media (max-width: 700px) {
+    .user-details-container {
+        max-width: 95vw;
+    }
+
+    .user-details-card {
+        padding: 25px;
+    }
+
+    .form-row {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+/* Mobilne ekrany dla wrappera Remember+Forgot */
+@media (max-width: 480px) {
+    .remember-forgot-wrapper {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
 }

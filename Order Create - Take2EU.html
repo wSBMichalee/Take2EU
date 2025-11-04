@@ -1,31 +1,31 @@
 <!DOCTYPE html>
 <!-- saved from url=(0036)https://localhost:7096/Orders/Create -->
-<html lang="pl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    
+<html lang="pl">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0, interactive-widget=resizes-content">
     <title> - Take2EU</title>
     <meta name="description" content="Take2EU - Your Gateway to European Employment">
 
-    <!-- Font globalny -->
     <link rel="preconnect" href="https://fonts.googleapis.com/">
     <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
     <link href="./Order Create - Take2EU_files/css2" rel="stylesheet">
 
-    <!-- Najpierw globalny CSS -->
     <link rel="stylesheet" href="./Order Create - Take2EU_files/site.css">
-    <!-- Komponentowe (np. burger) -->
     <link rel="stylesheet" href="./Order Create - Take2EU_files/burger-menu.css">
-      <link rel="stylesheet" href="./Order Create - Take2EU_files/cv-printable.css">
+    <link rel="stylesheet" href="./Order Create - Take2EU_files/cv-printable.css">
 
-    <!-- TU RenderSection - każdy widok może dołożyć swój CSS -->
-    
+
     <link rel="stylesheet" href="./Order Create - Take2EU_files/form-field.css">
     <link rel="stylesheet" href="./Order Create - Take2EU_files/plan-card.css">
     <link rel="stylesheet" href="./Order Create - Take2EU_files/order.css">
 
 
-    <!-- Pozostałe style, np. auto-scaffold/blazor, mogą być tu -->
+
 </head>
+
 <body>
     <header>
         <nav class="main-menu" role="navigation" aria-label="Main navigation">
@@ -33,84 +33,222 @@
                 <a href="https://localhost:7096/" class="brand-link" aria-label="Take2EU - Go to homepage">Take2EU</a>
             </div>
             <div class="menu-actions">
-        <a href="https://localhost:7096/Orders/Create" class="buy-now" aria-label="Start your European employment application">Buy now</a>
-                <a href="https://localhost:7096/Account/Login" class="account" aria-label="Sign in to your account">My Account</a>
+                <a href="https://localhost:7096/Orders/Create" class="buy-now"
+                    aria-label="Start your European employment application">Buy now</a>
+                <a href="https://localhost:7096/Account/Login" class="account" aria-label="Sign in to your account">My
+                    Account</a>
                 <div class="burger-menu-wrapper">
-<button type="button" class="burger-menu-btn" aria-label="Toggle user menu" aria-expanded="false" aria-haspopup="menu" aria-controls="burger-menu">
-  <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
-    <path d="M3 12h18M3 6h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
-  </svg>
-</button>
+                    <button type="button" class="burger-menu-btn" aria-label="Toggle user menu" aria-expanded="false"
+                        aria-haspopup="menu" aria-controls="burger-menu">
+                        <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true" focusable="false"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path d="M3 12h18M3 6h18M3 18h18" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round"></path>
+                        </svg>
+                    </button>
 
-<div id="burger-menu" class="burger-menu-dropdown hidden" aria-hidden="true">
-  <div class="burger-menu-content" role="menu">
-    <a href="https://localhost:7096/Account/Login" class="burger-menu-item" role="menuitem" tabindex="0">
-      <span class="menu-icon" aria-hidden="true">🔑</span>Log in
-    </a>
-    <a href="https://localhost:7096/Orders/Create" class="burger-menu-item" role="menuitem" tabindex="0">
-      <span class="menu-icon" aria-hidden="true">📝</span>Create account
-    </a>
-  </div>
-</div></div>
+                    <div id="burger-menu" class="burger-menu-dropdown hidden" aria-hidden="true">
+                        <div class="burger-menu-content" role="menu">
+                            <a href="https://localhost:7096/Account/Login" class="burger-menu-item" role="menuitem"
+                                tabindex="0">
+                                <span class="menu-icon" aria-hidden="true">🔑</span>Log in
+                            </a>
+                            <a href="https://localhost:7096/Orders/Create" class="burger-menu-item" role="menuitem"
+                                tabindex="0">
+                                <span class="menu-icon" aria-hidden="true">📝</span>Create account
+                            </a>
+                        </div>
+                    </div>
+                </div>
 
             </div>
         </nav>
     </header>
     <main role="main" class="content-wrapper">
-        <script src="./Order Create - Take2EU_files/form-field.js.pobrane" defer=""></script>
-        <div class="order-container">
-    <div style="text-align: center; margin-bottom: 30px; padding: 0 20px;">
-        <h2 style="color: #123456; margin-bottom: 10px;">Choose Your Plan</h2>
-        <p style="color: #666; font-size: 1rem;">Select the perfect plan for your European employment journey.</p>
-    </div>
-    <form method="post" id="payment-form" autocomplete="off">
-        
-            <div class="plan-card" data-plan-type="basic" data-price="4.99">
-                <div class="plan-header">Fast-Pack</div>
-                <div class="price">$4.99 / mo</div>
-                <button class="btn-primary get-now" type="button">GET NOW</button>
-            </div>
-            <div class="plan-card highlight" data-plan-type="advanced" data-price="14.99">
-                <div class="plan-header">Express-Pack</div>
-                <div class="price">$14.99 / mo</div>
-                <button class="btn-primary get-now" type="button">GET NOW</button>
-            </div>
-            <div class="plan-card" data-plan-type="professional" data-price="29.99">
-                <div class="plan-header">Priority-Pack</div>
-                <div class="price">$29.99 / mo</div>
-                <button class="btn-primary get-now" type="button">GET NOW</button>
-            </div>
-        <input type="hidden" id="selected-plan" data-val="true" data-val-regex="Invalid plan." data-val-regex-pattern="^(basic|advanced|professional)$" data-val-required="The SelectedPlan field is required." name="SelectedPlan" value="basic">
-        <div class="login-section" id="login-section">
-            <h3>Create new account</h3>
-            <div class="form-field"><label class="form-label" for="email">Email Address</label><div class="tooltip"><input aria-describedby="email-error" autocomplete="email" class="input-field" data-val="true" data-val-email="The Email field is not a valid e-mail address." data-val-required="The Email field is required." id="email" maxlength="100" name="Email" placeholder="name@example.com" type="email" value=""><span class="tooltip-text field-validation-valid" data-valmsg-for="Email" data-valmsg-replace="true" id="email-error"></span></div></div>
-            <div class="form-field"><label class="form-label" for="password">Password</label><div class="tooltip"><input aria-describedby="password-error" autocomplete="new-password" class="input-field" data-val="true" data-val-minlength="The field Password must be a string or array type with a minimum length of &#39;6&#39;." data-val-minlength-min="6" data-val-required="The Password field is required." id="password" maxlength="100" name="Password" placeholder="••••••" type="password" value=""><span class="tooltip-text field-validation-valid" data-valmsg-for="Password" data-valmsg-replace="true" id="password-error"></span></div></div>
-            <div class="form-field"><label class="form-label" for="confirm-password">Confirm Password</label><div class="tooltip"><input aria-describedby="confirm-password-error" autocomplete="new-password" class="input-field" data-val="true" data-val-equalto="Passwords must match." data-val-equalto-other="*.Password" id="confirm-password" maxlength="100" name="ConfirmPassword" placeholder="••••••" type="password" value=""><span class="tooltip-text field-validation-valid" data-valmsg-for="ConfirmPassword" data-valmsg-replace="true" id="confirm-password-error"></span></div></div>
-            <div class="form-field"><label class="form-label" for="cardname">Card Holder Name</label><div class="tooltip"><input aria-describedby="cardname-error" autocomplete="cc-name" class="input-field" data-val="true" data-val-length="The field CardHolderName must be a string with a maximum length of 100." data-val-length-max="100" data-val-required="The CardHolderName field is required." id="cardname" maxlength="100" name="CardHolderName" placeholder="John Doe" type="text" value=""><span class="tooltip-text field-validation-valid" data-valmsg-for="CardHolderName" data-valmsg-replace="true" id="cardname-error"></span></div></div>
-            <div class="form-field"><label class="form-label" for="cardnumber">Card Number</label><div class="tooltip"><input aria-describedby="cardnumber-error" autocomplete="cc-number" class="input-field" data-val="true" data-val-creditcard="The CardNumber field is not a valid credit card number." data-val-required="The CardNumber field is required." id="cardnumber" inputmode="numeric" maxlength="19" name="CardNumber" pattern="[0-9 ]*" placeholder="1234 5678 9012 3456" type="text" value=""><span class="tooltip-text field-validation-valid" data-valmsg-for="CardNumber" data-valmsg-replace="true" id="cardnumber-error"></span></div></div>
-            <div class="form-field"><label class="form-label" for="expiry">Expiry Date (MM/YY)</label><div class="tooltip"><input aria-describedby="expiry-error" autocomplete="cc-exp" class="input-field" data-val="true" data-val-regex="Expiry date must be in MM/YY format" data-val-regex-pattern="^(0[1-9]|1[0-2])\/\d{2}$" data-val-required="The ExpiryDate field is required." id="expiry" inputmode="numeric" maxlength="5" name="ExpiryDate" pattern="\d{2}/\d{2}" placeholder="MM/YY" type="text" value=""><span class="tooltip-text field-validation-valid" data-valmsg-for="ExpiryDate" data-valmsg-replace="true" id="expiry-error"></span></div></div>
-            <div class="form-field"><label class="form-label" for="cvv">CVV (security code)</label><div class="tooltip"><input aria-describedby="cvv-error" autocomplete="cc-csc" class="input-field" data-val="true" data-val-regex="CVV must be 3 or 4 digits" data-val-regex-pattern="^\d{3,4}$" data-val-required="The CVV field is required." id="cvv" inputmode="numeric" maxlength="3" name="CVV" pattern="[0-9]*" placeholder="123" type="text" value=""><span class="tooltip-text field-validation-valid" data-valmsg-for="CVV" data-valmsg-replace="true" id="cvv-error"></span></div></div>
-        </div>
-        <div class="summary-section">
-            <h3>Payment Summary</h3>
-            <strong>
-                Total <span id="total-amount">4.99</span> <span class="currency">$</span>
-            </strong>
-        </div>
-        <button type="submit" id="pay-btn" class="btn-primary" disabled="" style="background-color: rgb(170, 170, 170); cursor: not-allowed; color: rgb(238, 238, 238);">PAY</button>
-    <input name="__RequestVerificationToken" type="hidden" value="CfDJ8H5HZDrq3TFLsW_TpeW4Yg6-u6uK8PzjbiMYYFPmuRqosy6_FWWMyD2gngXp19XtMYD1tFttTTT32h23_pGP17HfBAzNbTA6zVsYLDPgcwlr14FuOak2WtfbClkKd2j3M6FIIx3spvhy_LFN5oi0uX0"></form>
-</div>
+        <script src="./Order Create - Take2EU_files/form-field.js.pobrane" defer></script>
 
+        <div class="pricing-wrapper">
+            <div style="text-align: center; margin-bottom: 30px; padding: 0 20px;">
+                <h2 style="color:#6BAADD; margin-bottom: 10px;">Choose Your Plan</h2>
+                <p style="color: #FFF; font-size: 1rem;">
+                    Select the perfect plan for your European employment journey.
+                </p>
+            </div>
+
+            <div class="plan-cards">
+                <div class="plan-card" data-plan-type="basic" data-price="4.99">
+                    <div class="plan-header">Fast-Pack</div>
+                    <div class="price">€4,99</div>
+                    <p class="wait">30 days waiting for a response</p>
+                    <p>This package is perfect for anyone who wants a solid, consistent presence in our database.</p>
+                    <ul>
+                        <li>Entry into the database</li>
+                        <li>Highlighted in search results</li>
+                        <li class="not-included">Top positioning in search results</li>
+                        <li class="not-included">Dedicated HR specialist</li>
+                        <li class="not-included">Notifications for employers</li>
+                    </ul>
+                    <button class="btn-primary get-now" type="button">GET NOW</button>
+                </div>
+
+                <div class="plan-card highlight" data-plan-type="advanced" data-price="14.99">
+                    <div class="plan-header">Express-Pack</div>
+                    <div class="badge">Most Popular</div>
+                    <div class="price">€14,99</div>
+                    <p class="wait">14 days waiting for a response</p>
+                    <p>This is the right package if you want to speed up the process and gain an advantage over other
+                        candidates.</p>
+                    <ul>
+                        <li>Entry into the database</li>
+                        <li>Highlighted in search results</li>
+                        <li>Notifications for employers</li>
+                        <li class="not-included">Dedicated HR specialist</li>
+                        <li class="not-included">Priority contact</li>
+                    </ul>
+                    <button class="btn-primary get-now" type="button">GET NOW</button>
+                </div>
+
+                <div class="plan-card" data-plan-type="professional" data-price="29.99">
+                    <div class="plan-header">Priority-Pack</div>
+                    <div class="price">€29,99</div>
+                    <p class="wait">7 days waiting for a response</p>
+                    <p>Best choice for those who want to be at the top and are actively seeking a job in
+                        Europe with a high priority.</p>
+                    <ul>
+                        <li>Entry into the database</li>
+                        <li>Top positioning in search results</li>
+                        <li>Notifications for employers</li>
+                        <li>Dedicated HR specialist</li>
+                        <li>Priority contact</li>
+                    </ul>
+                    <button class="btn-primary get-now" type="button">GET NOW</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="order-container">
+            <form method="post" id="payment-form" autocomplete="off">
+
+                <input type="hidden" id="selected-plan" name="SelectedPlan" value="basic" data-val="true"
+                    data-val-regex="Invalid plan." data-val-regex-pattern="^(basic|advanced|professional)$"
+                    data-val-required="The SelectedPlan field is required.">
+
+                <div class="login-section" id="login-section">
+                    <h3 style="color:#6BAADD; margin-bottom: 10px;">Create new account</h3>
+                    <div class=" form-field">
+                        <label class="form-label" for="email">Email Address</label>
+                        <div class="tooltip">
+                            <input aria-describedby="email-error" autocomplete="email" class="input-field"
+                                data-val="true" data-val-email="The Email field is not a valid e-mail address."
+                                data-val-required="The Email field is required." id="email" maxlength="100" name="Email"
+                                placeholder="name@example.com" type="email">
+                            <span class="tooltip-text field-validation-valid" data-valmsg-for="Email"
+                                data-valmsg-replace="true" id="email-error"></span>
+                        </div>
+                    </div>
+                    <div class="form-field">
+                        <label class="form-label" for="password">Password</label>
+                        <div class="tooltip">
+                            <input aria-describedby="password-error" autocomplete="new-password" class="input-field"
+                                data-val="true"
+                                data-val-minlength="The field Password must be a string or array type with a minimum length of '6'."
+                                data-val-minlength-min="6" data-val-required="The Password field is required."
+                                id="password" maxlength="100" name="Password" placeholder="••••••" type="password">
+                            <span class="tooltip-text field-validation-valid" data-valmsg-for="Password"
+                                data-valmsg-replace="true" id="password-error"></span>
+                        </div>
+                    </div>
+                    <div class="form-field">
+                        <label class="form-label" for="confirm-password">Confirm Password</label>
+                        <div class="tooltip">
+                            <input aria-describedby="confirm-password-error" autocomplete="new-password"
+                                class="input-field" data-val="true" data-val-equalto="Passwords must match."
+                                data-val-equalto-other="*.Password" id="confirm-password" maxlength="100"
+                                name="ConfirmPassword" placeholder="••••••" type="password">
+                            <span class="tooltip-text field-validation-valid" data-valmsg-for="ConfirmPassword"
+                                data-valmsg-replace="true" id="confirm-password-error"></span>
+                        </div>
+                    </div>
+                    <div class="form-field">
+                        <label class="form-label" for="cardname">Card Holder Name</label>
+                        <div class="tooltip">
+                            <input aria-describedby="cardname-error" autocomplete="cc-name" class="input-field"
+                                data-val="true"
+                                data-val-length="The field CardHolderName must be a string with a maximum length of 100."
+                                data-val-length-max="100" data-val-required="The CardHolderName field is required."
+                                id="cardname" maxlength="100" name="CardHolderName" placeholder="John Doe" type="text">
+                            <span class="tooltip-text field-validation-valid" data-valmsg-for="CardHolderName"
+                                data-valmsg-replace="true" id="cardname-error"></span>
+                        </div>
+                    </div>
+                    <div class="form-field">
+                        <label class="form-label" for="cardnumber">Card Number</label>
+                        <div class="tooltip">
+                            <input aria-describedby="cardnumber-error" autocomplete="cc-number" class="input-field"
+                                data-val="true"
+                                data-val-creditcard="The CardNumber field is not a valid credit card number."
+                                data-val-required="The CardNumber field is required." id="cardnumber"
+                                inputmode="numeric" maxlength="19" name="CardNumber" pattern="[0-9 ]*"
+                                placeholder="1234 5678 9012 3456" type="text">
+                            <span class="tooltip-text field-validation-valid" data-valmsg-for="CardNumber"
+                                data-valmsg-replace="true" id="cardnumber-error"></span>
+                        </div>
+                    </div>
+                    <div class="form-field">
+                        <label class="form-label" for="expiry">Expiry Date (MM/YY)</label>
+                        <div class="tooltip">
+                            <input aria-describedby="expiry-error" autocomplete="cc-exp" class="input-field"
+                                data-val="true" data-val-regex="Expiry date must be in MM/YY format"
+                                data-val-regex-pattern="^(0[1-9]|1[0-2])\/\d{2}$"
+                                data-val-required="The ExpiryDate field is required." id="expiry" inputmode="numeric"
+                                maxlength="5" name="ExpiryDate" pattern="\d{2}/\d{2}" placeholder="MM/YY" type="text">
+                            <span class="tooltip-text field-validation-valid" data-valmsg-for="ExpiryDate"
+                                data-valmsg-replace="true" id="expiry-error"></span>
+                        </div>
+                    </div>
+                    <div class="form-field">
+                        <label class="form-label" for="cvv">CVV (security code)</label>
+                        <div class="tooltip">
+                            <input aria-describedby="cvv-error" autocomplete="cc-csc" class="input-field"
+                                data-val="true" data-val-regex="CVV must be 3 or 4 digits"
+                                data-val-regex-pattern="^\d{3,4}$" data-val-required="The CVV field is required."
+                                id="cvv" inputmode="numeric" maxlength="3" name="CVV" pattern="[0-9]*" placeholder="123"
+                                type="text">
+                            <span class="tooltip-text field-validation-valid" data-valmsg-for="CVV"
+                                data-valmsg-replace="true" id="cvv-error"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="summary-section">
+                    <h3>Payment Summary</h3>
+                    <strong>
+                        Total <span id="total-amount">4.99</span> <span class="currency">$</span>
+                    </strong>
+                </div>
+
+                <button type="submit" id="pay-btn" class="btn-primary" disabled=""
+                    style="background-color: rgb(170, 170, 170); cursor: not-allowed; color: rgb(238, 238, 238);">PAY</button>
+
+                <input name="__RequestVerificationToken" type="hidden"
+                    value="CfDJ8H5HZDrq3TFLsW_TpeW4Yg6-u6uK8PzjbiMYYFPmuRqosy6_FWWMyD2gngXp19XtMYD1tFttTTT32h23_pGP17HfBAzNbTA6zVsYLDPgcwlr14FuOak2WtfbClkKd2j3M6FIIx3spvhy_LFN5oi0uX0">
+
+            </form>
+        </div>
     </main>
-    
+
+
     <script src="./Order Create - Take2EU_files/plan-card.js.pobrane" defer=""></script>
     <script type="module" src="./Order Create - Take2EU_files/order-form.js.pobrane"></script>
 
     <script src="./Order Create - Take2EU_files/burger-menu.js.pobrane" defer=""></script>
 
-<!-- Visual Studio Browser Link -->
-<script type="text/javascript" src="./Order Create - Take2EU_files/browserLink" async="async" id="__browserLink_initializationData" data-requestid="f5cf617b6b2d4269b125d1dacbb59fc9" data-requestmappingfromserver="false" data-connecturl="http://localhost:60694/7ad38c5392074f1496c7a645265da9b4/browserLink"></script>
-<!-- End Browser Link -->
-<script src="./Order Create - Take2EU_files/aspnetcore-browser-refresh.js.pobrane"></script>
+    <script type="text/javascript" src="./Order Create - Take2EU_files/browserLink" async="async"
+        id="__browserLink_initializationData" data-requestid="f5cf617b6b2d4269b125d1dacbb59fc9"
+        data-requestmappingfromserver="false"
+        data-connecturl="http://localhost:60694/7ad38c5392074f1496c7a645265da9b4/browserLink"></script>
+    <script src="./Order Create - Take2EU_files/aspnetcore-browser-refresh.js.pobrane"></script>
 
-</body></html>
+</body>
+
+</html>

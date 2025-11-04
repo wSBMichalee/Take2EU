@@ -1,90 +1,321 @@
-﻿.order-container {
+﻿/* === PRICING SECTION === */
+.pricing-section {
+    background: radial-gradient(circle at top left, #2B0B55, #0A0118);
+    padding: 100px 20px;
+    text-align: center;
+    color: #fff;
+}
+
+.plan-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 40px;
+    justify-content: center;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+.plan-card {
+    background: linear-gradient(180deg, rgba(60, 34, 91, 0.8), rgba(10, 1, 24, 0.9));
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 35px 25px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    position: relative;
+    text-align: center;
+    color: #fff;
+    transition: all 0.3s ease;
+    width: 100%;
     max-width: 360px;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+.plan-card:hover {
+    border-color: #6BAADD;
+    box-shadow: 0 0 25px rgba(107, 170, 221, 0.4);
+    transform: translateY(-6px);
+}
+
+.plan-card .plan-header {
+    display: inline-block;
+    padding: 5px 12px;
+    background: linear-gradient(140deg, #6BAADD 0%, #274E89 100%);
+    color: #fff;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    box-shadow: 0 0 6px rgba(107, 170, 221, 0.5);
+}
+
+.plan-card .price {
+    font-size: 32px;
+    margin: 15px 0;
+    font-weight: 700;
+}
+
+.plan-card p {
+    color: #cfcfcf;
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+.plan-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+    text-align: left;
+}
+
+.plan-card ul li {
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 15px;
+}
+
+.plan-card ul li::before {
+    content: "✔ ";
+    color: #6BAADD;
+}
+
+.plan-card ul li.not-included::before {
+    content: "❌ ";
+    color: #FF6B6B;
+}
+
+.plan-card .get-now {
+    display: inline-block;
+    padding: 12px 24px;
+    border-radius: 12px;
+    background: linear-gradient(140deg, #6BAADD 0%, #274E89 100%);
+    color: #fff;
+    font-weight: 700;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 15px;
+    box-shadow: 0 4px 12px rgba(107, 170, 221, 0.3);
+}
+
+.plan-card .get-now:hover {
+    background: linear-gradient(180deg, rgba(60, 34, 91, 0.8), rgba(10, 1, 24, 0.9));
+    box-shadow: 0 0 20px rgba(107, 170, 221, 0.5);
+    transform: translateY(-2px);
+}
+
+.plan-card.highlight .get-now {
+    background: #ffffff;
+    color: #274E89;
+}
+
+.plan-card.highlight .get-now:hover {
+    background: #f2f5ff;
+}
+
+.plan-card.highlight .badge {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(140deg, #6BAADD 0%, #274E89 100%);
+    color: white;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 5px 12px;
+    border-radius: 20px;
+    letter-spacing: 1px;
+    box-shadow: 0 0 6px rgba(107, 170, 221, 0.5);
+}
+
+/* === ORDER / LOGIN SECTION === */
+.order-container {
+    max-width: 100%;
+    width: 360px;
     margin: 24px auto;
-    padding: 0 10px;
+    padding: 20px;
+    text-align: center;
+    position: relative;
+    border-radius: 20px;
+    box-shadow: 0 0 25px rgba(107, 170, 221, 0.2);
+    background: #0A0118;
+    z-index: 0;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.order-container::before {
+    content: "";
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    z-index: -1;
+    border-radius: 22px;
+}
+
+.login-section h3,
+.summary-section h3 {
+    color: #6BAADD;
+    margin-bottom: 10px;
+}
+
+.summary-section {
+    max-width: 100%;
+    width: 360px;
+    margin: 20px auto;
     text-align: center;
 }
 
-/* SUMMARY: wyśrodkowanie sekcji i wiersza z kwotą */
-.summary-section {
-    max-width: 360px;
-    margin: 20px auto;
-    text-align: center; /* było left → center */
+.summary-section strong {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    font-weight: 700;
+    font-size: 1.05rem;
+    flex-wrap: nowrap;
+    /* Total + kwota + $ w jednej linii */
 }
 
-    .summary-section h3 {
-        margin-bottom: 12px;
-    }
+.summary-section #total-amount {
+    min-width: 80px;
+    background: #eee;
+    padding: 6px 12px;
+    border-radius: 12px;
+    color: #222;
+    text-align: right;
+    flex-shrink: 1;
+}
 
-    .summary-section strong {
-        display: flex;
-        align-items: center;
-        justify-content: center; /* dodane: środek w osi głównej */
-        gap: 12px;
-        font-weight: 700;
-        font-size: 1.05rem;
-    }
+.summary-section .currency {
+    color: #FFF;
+    font-weight: 600;
+    flex-shrink: 1;
+}
 
-    .summary-section #total-amount {
-        min-width: 80px;
-        background: #eee;
-        padding: 6px 12px;
-        border-radius: 12px;
-        color: #222;
-        text-align: right;
-    }
-
-    .summary-section .currency {
-        color: #444;
-        font-weight: 600;
-    }
-
-/* PAY: spójny wygląd i centrowanie jak “get now” */
 .pay-btn {
-    display: inline-flex; /* centrowanie zawartości przycisku */
+    display: inline-flex;
     align-items: center;
     justify-content: center;
     padding: 12px 24px;
     border-radius: 12px;
     border: 0;
-    background: #2563EB; /* zbliżone do “get now” */
+    background: linear-gradient(140deg, #6BAADD, #274E89);
     color: #fff;
     font-weight: 700;
     font-size: 1.1rem;
-    width: auto; /* zamiast 100% — łatwiej wyśrodkować */
-    min-width: 200px; /* stabilna szerokość wizualna */
-    margin-inline: auto; /* wyśrodkowanie w wierszu */
+    width: auto;
+    min-width: 200px;
+    margin-inline: auto;
     transition: background-color .15s ease-in-out, transform .1s ease;
+    cursor: pointer;
+    box-sizing: border-box;
 }
 
-    .pay-btn:disabled {
-        background: #aaa;
-        color: #eee;
-        cursor: not-allowed;
-        transform: none;
+.pay-btn:disabled {
+    background: #aaa;
+    color: #eee;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.pay-btn:hover:not(:disabled) {
+    background: linear-gradient(180deg, #1D4ED8, #3B82F6);
+}
+
+.pay-btn:active:not(:disabled) {
+    transform: translateY(1px);
+}
+
+.pay-btn:focus-visible {
+    outline: 3px solid rgba(37, 99, 235, .45);
+    outline-offset: 2px;
+}
+
+/* === RESPONSYWNOŚĆ === */
+
+/* Tablety (768px - 1024px) */
+@media (max-width: 1024px) {
+    .plan-cards {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 0 20px;
     }
 
-    .pay-btn:hover:not(:disabled) {
-        background: #1D4ED8; /* hover spójny z “get now” */
-    }
-
-    .pay-btn:active:not(:disabled) {
-        transform: translateY(1px);
-    }
-
-    .pay-btn:focus-visible {
-        outline: 3px solid rgba(37,99,235,.45);
-        outline-offset: 2px;
-    }
-
-/* Mobile: pełna szerokość, ale z limitem, nadal wyśrodkowany */
-@media (max-width: 480px) {
+    .plan-card,
+    .order-container,
+    .summary-section,
     .pay-btn {
-        width: 100%;
-        max-width: 320px;
+        width: 90%;
+        max-width: 400px;
+        padding: 25px 20px;
+        margin: 0 auto;
     }
 
     .summary-section strong {
-        justify-content: center; /* utrwalenie środka na wąskich ekranach */
+        font-size: 1rem;
+        gap: 8px;
+    }
+}
+
+/* Telefony (480px - 767px) */
+@media (max-width: 767px) {
+    .plan-cards {
+        grid-template-columns: 1fr;
+        gap: 15px;
+        padding: 0 15px;
+    }
+
+    .plan-card,
+    .order-container,
+    .summary-section,
+    .pay-btn {
+        width: 95%;
+        max-width: 360px;
+        padding: 20px 15px;
+        margin: 0 auto;
+    }
+
+    .summary-section strong {
+        font-size: 0.95rem;
+        gap: 6px;
+    }
+
+    .pay-btn {
+        width: 100%;
+    }
+}
+
+/* Małe telefony (<480px) */
+@media (max-width: 480px) {
+    .plan-cards {
+        padding: 0 10px;
+    }
+
+    .plan-card,
+    .order-container,
+    .summary-section,
+    .pay-btn {
+        width: 95%;
+        max-width: 320px;
+        padding: 18px 12px;
+        margin: 0 auto;
+    }
+
+    .summary-section strong {
+        font-size: 0.9rem;
+        gap: 4px;
+    }
+
+    .pay-btn {
+        width: 100%;
     }
 }
